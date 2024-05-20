@@ -1,0 +1,56 @@
+.main-addcourse{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    min-height: 100vh;
+    }
+    .addnewcourse{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 150px;
+       gap:10px;
+        background-color: rgb(46, 43, 43);
+        color:rgb(0, 0, 0);
+        h2{
+            color: #ffffff;
+        }
+        .form{
+            background-color: white ;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 2px 4px 0px rgb(169, 183, 169);
+        }
+        
+    
+        input,select{
+            height:30px;
+            max-width:300px
+            ;
+            border-radius: 10px;
+            background-color: rgb(250, 245, 253);
+        }
+        input:nth-child(1){
+            border-radius: 0px;
+        }
+        button{
+            background-color: rgb(226, 60, 221);
+            width:80px;
+            height: 30px;
+            border-radius: 5px;
+            border: none;
+            color: azure;
+        }
+        .in{
+            display: flex;
+            flex-direction: column;
+            margin: 10px 0px;
+            text-align: start;
+            label{
+                font-size: small;
+                margin-bottom: 2px;
+                font-weight: 500;
+            }
+        }
+    }

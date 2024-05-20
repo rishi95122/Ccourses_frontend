@@ -1,0 +1,135 @@
+.navbar{
+    padding:10px 30px;
+    margin-bottom: 1px;
+    box-shadow: 0px 0px 2px 0px gray;
+    display: flex;
+   justify-content:space-between ;
+    align-items: center;
+    background-color: #ffffff;
+
+    .navsearch{
+        flex: 1;
+        text-align: center;
+    }
+    .courseSearch{
+      
+    }
+  
+        input{
+            flex: 0.5;
+            height:30px;
+            border-radius: 20px;;
+            text-align: center;
+        }
+        p{
+            font-size: small;
+            height: 100%;
+            
+        }.sub-cat{
+            position: absolute;
+            
+            top:0px;
+            left:162px;
+            background-color: #ffffff;
+            padding: 0px 20px;
+            box-shadow: 0px 2px 4px 0px gray;
+            width: 120px;
+            .p{
+                font-size: x-small;
+                color: rgb(137, 137, 137);
+                display: flex;
+               
+                justify-content: space-between;
+            }
+            .p:hover{
+                color: blueviolet;
+            }
+        }
+        .nav-cat{
+            
+            position: absolute;
+            z-index: 1;
+            top:65px;
+            left:100px;
+            background-color: #ffffff;
+            padding: 0px 20px;
+            box-shadow: 0px 4px 8px 0px gray;
+            width: 120px;
+            .p{
+                font-size: x-small;
+                color: rgb(137, 137, 137);
+                display: flex;
+               
+                justify-content: space-between;
+            }
+            .p:hover{
+                color: blueviolet;
+            }
+        }
+  
+    .login{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 150px;
+        .log{
+            color: black;
+          
+            background-color: white;
+            padding: 5px  10px;
+         
+        }
+        .log:hover {
+            background-color: rgb(210, 210, 210);
+        }
+        .singup{
+            color: white;
+            background-color: black;
+           
+            padding: 5px  10px;
+        }
+        .singup:hover {
+            background-color: rgb(55, 54, 54);
+        }
+    }
+}
+
+.img{
+    display: flex;
+    gap:10px;
+    min-width: 160px;
+    position: s;
+    img{
+        width: 70px;
+    }
+}
+
+.carousel{
+    text-align: center;
+}
+.main-carou{
+    position: relative;
+    .text{
+        h2{
+            margin: 0px;
+            font-size: large;
+        }
+        p{
+            margin: 0px;
+            font-size: small;
+        }
+        background-color: white;
+        width:300px;
+       padding: 15px 30px 15px 10px;
+       box-shadow: 0px 4px 8px 0px;
+        position: absolute;
+        top:60px;
+        left:60px;
+        text-align: start;
+    }
+    @media only screen and (max-width: 700px) {
+        .text{
+            display: none;
+        }
+      }
+}

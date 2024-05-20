@@ -1,0 +1,31 @@
+
+.loginn,.register{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 150px;
+    gap:8px;
+    text-align: center;
+    justify-content: center;
+ 
+    input{
+        padding: 8px ;
+    }
+    button{
+        padding: 10px 20px;
+        background-color: rgb(181, 110, 248);
+        border:none;        
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+    }
+    select{
+        padding: 8px ;
+    }
+   min-width: 400px;
+}
+.parent-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+}
+

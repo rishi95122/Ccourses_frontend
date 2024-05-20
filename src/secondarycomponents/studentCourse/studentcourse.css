@@ -1,0 +1,141 @@
+.add-course{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   gap:10px;
+    background-color: rgb(46, 43, 43);
+    color:white;
+
+    .form{
+        background-color: white ;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0px 2px 4px 0px rgb(169, 183, 169);
+    }
+    .view-course{
+        margin: 20px 60px;
+        .view-content{
+            .img{
+                width:90%;
+                height: 350px;
+            }
+            img{
+                width: 100%;
+               
+                border-radius: 10px;
+            }
+            p{
+                font-size: small;
+                width: 500px;
+            }
+        }
+    }
+    .view-content{
+       
+        padding: 0px;
+        margin: 0px;
+    }
+   
+    .content{
+       border: 1px solid gray;
+        background-color: rgb(255, 255, 255);
+        cursor: pointer;
+        .inner-content{
+          font-size: small;
+            padding:10px;
+            margin-top: -5px;
+            background-color: rgb(255, 255, 255);
+       
+         p{
+           
+        }
+        }
+        margin-bottom: 10px;
+    }
+
+    .chapters{
+background-color: rgb(255, 255, 255);
+margin: 10px -60px -20px -60px;
+padding: 10px;
+
+color: black;
+        .chapter{
+            display: flex;
+            gap:10px;
+            align-items: center;
+            background-color: rgb(246, 245, 245);
+            padding: 0.1px;
+    
+        
+            border: 1px solid rgb(191, 191, 191);
+            h5{
+                font-weight: 700;
+               margin-left: 10px;
+            }
+        }
+        .chapter-form{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .addnewchapter{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap:5px;
+                input{
+                    border-radius: 10px;
+                    text-align: center;
+                    background-color: #ffffff;
+                }
+                button:hover{
+                    background-color: rgb(232, 135, 202);
+                }
+            }
+        }
+    }
+
+    input,select{
+        height:30px;
+        max-width:300px
+        ;
+        border-radius: 10px;
+        background-color: rgb(250, 245, 253);
+    }
+    input:nth-child(1){
+        border-radius: 0px;
+    }
+    button{
+        background-color: rgb(226, 60, 221);
+        width:80px;
+        height: 30px;
+        border-radius: 5px;
+        border: none;
+        color: azure;
+    }
+    .in{
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0px;
+        text-align: start;
+        label{
+            font-size: small;
+            margin-bottom: 2px;
+            font-weight: 500;
+        }
+    }
+}
+
+.main-addcourse{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    min-height: 100vh;
+    background-color: rgb(229, 239, 239);
+    min-width: 632px;
+    }
+
+    .loading{
+        margin-left:250px;
+        }

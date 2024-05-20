@@ -1,0 +1,43 @@
+
+.singlecourse{
+    margin: 30px 120px;
+    .img{
+        height:300px;
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+    .info{
+        display: flex;
+        gap:5px;
+        p{
+            font-size: small;
+            padding: 0px;
+            margin: 0px;
+        }
+        p:nth-child(1){
+            background-color: rgb(241, 241, 36);
+            padding: 2px 4px;
+            font-size: x-small;
+        }
+        p:nth-child(2){
+            font-weight: bold;
+        }
+  
+
+    }
+    button{
+        padding: 8px 8px;
+        width: 100%;
+        background-color: white;
+        font-weight: bold;    
+    }
+    button:hover{
+        background-color: rgb(243, 241, 241);
+    }
+    p{
+        font-size: small;
+           
+    }
+}

@@ -1,0 +1,84 @@
+.navbar{
+    padding:10px 30px;
+    margin-bottom: 1px;
+    box-shadow: 0px 0px 2px 0px gray;
+    display: flex;
+   justify-content:space-between ;
+    align-items: center;
+    background-color: #ffffff;
+
+    .navsearch{
+        flex: 1;
+        text-align: center;
+    }
+
+  
+        input{
+            flex: 0.5;
+            height:30px;
+            border-radius: 20px;;
+            text-align: center;
+        }
+        p{
+            font-size: small;
+            height: 100%;
+            
+        }.sub-cat{
+            position: absolute;
+            
+            top:0px;
+            left:162px;
+            background-color: #ffffff;
+            padding: 0px 20px;
+            box-shadow: 0px 2px 4px 0px gray;
+            width: 120px;
+            .p{
+                font-size: x-small;
+                color: rgb(137, 137, 137);
+                display: flex;
+               
+                justify-content: space-between;
+            }
+            .p:hover{
+                color: blueviolet;
+            }
+        }
+        .login{
+            .log,.singup,p{
+               cursor: pointer;
+            }
+           
+        }
+        .nav-cat{
+            
+            position: absolute;
+            z-index: 1;
+            top:65px;
+            left:100px;
+            background-color: #ffffff;
+            padding: 0px 20px;
+            box-shadow: 0px 4px 8px 0px gray;
+            width: 120px;
+            .p{
+                font-size: x-small;
+                color: rgb(137, 137, 137);
+                display: flex;
+               
+                justify-content: space-between;
+            }
+            .p:hover{
+                color: blueviolet;
+            }
+        }
+    }
+    .profilebar{
+        background-color: rgb(250, 250, 250);
+        
+        position: absolute;
+        top:50px;
+        z-index: 1;
+        box-shadow: 0px 1px 2px 0px;
+        padding: 10px;
+        font-size: small;
+    }
+    

@@ -1,0 +1,14 @@
+.footer{
+    display: flex;
+    background-color: black;
+    justify-content: space-between;
+    padding: 20px;
+    img{
+        width: 60px;
+        color: #ffffff;
+    }
+    p{
+        font-size: small;
+        color: #ffffff;
+    }
+  }
