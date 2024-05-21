@@ -7,7 +7,7 @@ const Single = ({cat}) => {
     const [data,setData]=useState([])
     useEffect(()=>{
         async function getData(){
-            const dataa=await axios.post("/course/getcoursesBycategory",{
+            const dataa=await axios.post(`${process.env.REACT_APP_BACK_API}/course/getcoursesBycategory`,{
                 category:cat
             })
            setData(dataa.data)
@@ -19,7 +19,7 @@ const Single = ({cat}) => {
         {
             data.map((item)=>{
                 return (
-                        <Link style={{textDecoration:"none"}} to={"/course/"+item.course} state={item}>
+                        <Link style={{textDecoration:"none"}} to={`/course/`+item.course} state={item}>
                       
                          <div className='card'>
                             <div className='img'>

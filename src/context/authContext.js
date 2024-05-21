@@ -12,7 +12,7 @@ const [input,setInput] =useState("")
 const register= async(data)=>{
   
     try{
-        await axios.post("/auth/register", data  )
+        await axios.post(`${process.env.REACT_APP_BACK_API}/auth/register`, data  )
         nav("/login")
       }
       catch(err){
@@ -23,7 +23,7 @@ const register= async(data)=>{
 const forgot= async(data)=>{
    
   try{
-      await axios.post("/auth/forgot", data  )
+      await axios.post(`${process.env.REACT_APP_BACK_API}/auth/forgot`, data  )
       nav("/login")
     }
     catch(err){
@@ -36,7 +36,7 @@ const forgot= async(data)=>{
 
 const login= async(data)=>{
     try{
-       const user= await axios.post("/auth/login", data  );
+       const user= await axios.post(`${process.env.REACT_APP_BACK_API}/auth/login`, data  );
 
         localStorage.setItem("user",JSON.stringify(user.data))
         setCurrentUser(user.data)

@@ -31,7 +31,7 @@ function submitData(e){
 
   const handleClick=async ()=>{
     try{
-      await axios.post("/course/add",{
+      await axios.post(`${process.env.REACT_APP_BACK_API}/course/add`,{
         name:input,
         username:currentUser.username,
         image:image,

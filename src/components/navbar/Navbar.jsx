@@ -23,7 +23,7 @@ const Navbar = () => {
 
     setCurrentUser(null);
     try {
-      await axios.post("/auth/logout");
+      await axios.post(`${process.env.REACT_APP_BACK_API}/auth/logout`);
     } catch (err) {
      
     }

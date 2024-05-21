@@ -8,7 +8,7 @@ const AddChapterContent = ({course,chapter,loading,username,content,add,handleEd
   const [open,setOpen]=useState()
         async function addContent() {
           try {
-          await axios.post("/chapter/content", {
+          await axios.post(`${process.env.REACT_APP_BACK_API}/chapter/content`, {
               username: username,
               course: course,
               chapter:chapter,

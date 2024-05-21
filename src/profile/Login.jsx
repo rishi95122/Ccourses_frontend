@@ -29,7 +29,7 @@ const Login = () => {
 
   const handleOtp=async ()=>{
     try{
-      const err= await axios.post("/auth/mail",{email:email})
+      const err= await axios.post(`${process.env.REACT_APP_BACK_API}/auth/mail`,{email:email})
         setErr(err)
       }
       catch(err){

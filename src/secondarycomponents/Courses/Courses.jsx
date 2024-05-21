@@ -23,7 +23,7 @@ const Courses = () => {
   const handleClick = async (e) => {
     e.preventDefault()
     try {
-      await axios.post("/course/addCourse", {
+      await axios.post(`${process.env.REACT_APP_BACK_API}/course/addCourse`, {
         name: input,
         course: name,
         username: currentUser.username,
@@ -36,7 +36,7 @@ const Courses = () => {
   };
  const  getCourses=async ()=> {
     try {
-      const course = await axios.post("/course/getcourses", {
+      const course = await axios.post(`${process.env.REACT_APP_BACK_API}/course/getcourses`, {
         username: currentUser.username,
         course: name,
       });
@@ -55,7 +55,7 @@ const Courses = () => {
     setLoading(true)
     setAdd(item)
     try {
-      const dataa=await axios.post("/chapter/getContent", {
+      const dataa=await axios.post(`${process.env.REACT_APP_BACK_API}/chapter/getContent`, {
           username: currentUser.username,
           course: name,
           chapter:item.name,

@@ -26,7 +26,7 @@ const Forgot = ({dis}) => {
     const handleOtp=async ()=>{
       setErr("")
       try{
-       await axios.post("/auth/mail",{email:email})
+       await axios.post(`${process.env.REACT_APP_BACK_API}/auth/mail`,{email:email})
      
         }
         catch(err){

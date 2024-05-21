@@ -7,6 +7,7 @@ const [cat,setCat]=useState("Web Development")
 const handleSub=(item)=>{
   setCat(item.category)
 } 
+console.log("dsf",process.env.REACT_APP_BACK_API)
   return (
     <div className='container'>
         <div>

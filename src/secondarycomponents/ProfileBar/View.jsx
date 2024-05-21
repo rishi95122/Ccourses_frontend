@@ -14,7 +14,7 @@ const View = () => {
     useEffect(()=>{
        
         async  function getData(){
-            const dataa= await axios.post("/course/get",{name:currentUser.username},{headers: {
+            const dataa= await axios.post(`${process.env.REACT_APP_BACK_API}/course/get`,{name:currentUser.username},{headers: {
                 'authorization': 'Bearer '  + token
               }})
              
