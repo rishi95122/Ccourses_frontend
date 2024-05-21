@@ -46,7 +46,7 @@
       "last 1 safari version"
     ]
   },
-   "proxy": "https://udemy-mongo.onrender.com/api/",
+  "proxy": "https://udemy-mongo.onrender.com/api/",
   "devDependencies": {
     "dotenv": "^16.4.5"
   }
