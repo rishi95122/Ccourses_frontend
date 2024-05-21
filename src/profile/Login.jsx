@@ -42,7 +42,7 @@ const Login = () => {
   return (
     <div className='parent-login'>
         <div className='loginn'>
-        <h5> Login to your account</h5>
+        <h5> Login to yourss account</h5>
         <input onChange={(e)=>setEmail(e.target.value)} placeholder='Email'></input>
         <input onChange={(e)=>setPassword(e.target.value)} placeholder='Password' />
         <input onChange={(e)=>setOtp(e.target.value)} placeholder='Otp' /> 
