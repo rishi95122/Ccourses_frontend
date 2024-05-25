@@ -46,7 +46,7 @@ return ()=>{
   },[seconds])
 
   const handleOtp=async ()=>{
-    setSeconds(5)
+    setSeconds(30)
     setResend(true)
     try{
       const err= await axios.post(`${process.env.REACT_APP_BACK_API}/auth/mail`,{email:email})
