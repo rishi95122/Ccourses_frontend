@@ -6,7 +6,9 @@
     gap:8px;
     text-align: center;
     justify-content: center;
- 
+ P{
+    margin: 0px;
+ }
     input{
         padding: 8px ;
     }
