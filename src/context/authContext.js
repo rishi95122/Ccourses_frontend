@@ -36,7 +36,9 @@ const forgot= async(data)=>{
 
 const login= async(data)=>{
     try{
-       const user= await axios.post(`${process.env.REACT_APP_BACK_API}/auth/login`, data  );
+       const user= await axios.post(`${process.env.REACT_APP_BACK_API}/auth/login`, data ,{
+        withCredentials:true
+       } );
 
         localStorage.setItem("user",JSON.stringify(user.data))
         setCurrentUser(user.data)

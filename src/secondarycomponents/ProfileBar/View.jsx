@@ -10,16 +10,27 @@ const View = () => {
     const {currentUser}=useContext(AuthContext)
     const [data,setData]=useState(null)
     const token=Cookies.get("access_token")
-   
+   console.log("dsd",token)
     useEffect(()=>{
        
-        async  function getData(){
-            const dataa= await axios.post(`${process.env.REACT_APP_BACK_API}/course/get`,{name:currentUser.username},{headers: {
-                'authorization': 'Bearer '  + token
-              }})
-             
-            setData(dataa.data)
-        }
+        async function getData() {
+            try {
+              const response = await axios.post(
+                `${process.env.REACT_APP_BACK_API}/course/get`,
+                { name: currentUser.username },
+                {
+                  withCredentials: true,
+                  headers: {
+                    'authorization': 'Bearer ' + token
+                  }
+                }
+              );
+              
+              setData(response.data);
+            } catch (error) {
+              console.error('Error fetching data:', error);
+            }
+          }
         getData()
     },[])
 

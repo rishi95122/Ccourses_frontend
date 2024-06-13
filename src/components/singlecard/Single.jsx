@@ -2,22 +2,29 @@ import React, { useEffect, useState } from 'react'
 import {Link} from "react-router-dom"
 import axios from "axios"
 import "./single.css"
+import { MoonLoader } from 'react-spinners'
 const Single = ({cat}) => {
 
     const [data,setData]=useState([])
+    const [loading,setLoading]=useState()
     useEffect(()=>{
+        
         async function getData(){
+            setLoading(true)
             const dataa=await axios.post(`${process.env.REACT_APP_BACK_API}/course/getcoursesBycategory`,{
                 category:cat
             })
            setData(dataa.data)
+           setLoading(false)
         }
         getData()
+       
     },[cat])
+    console.log(loading)
   return (
     <div className='single'>
         {
-            data.map((item)=>{
+            !loading? (data.map((item)=>{
                 return (
                         <Link style={{textDecoration:"none"}} to={`/course/`+item.course} state={item}>
                       
@@ -38,7 +45,7 @@ const Single = ({cat}) => {
                 
                     </Link >
                 )
-            })
+            })):<div className='loading'> <MoonLoader color="#36d7b7" /> </div>
         }
     </div>
   )
