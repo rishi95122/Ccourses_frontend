@@ -13,10 +13,10 @@ const [open,setOpen]=useState()
            !loading ? (content &&  content.map((item,idx)=>{
                 return <div className='inner-content' onClick={()=>{setOpen(idx)}}>
                 <p> Video {idx+1}</p>
-                 <div>
+                 <div className='video'>
                   {open===idx &&         <ReactPlayer
       url={`   https://www.youtube.com/embed/${item.contentname}`}
-      width="640px"
+      width="100%"
       height="440px"
       controls
     />           }

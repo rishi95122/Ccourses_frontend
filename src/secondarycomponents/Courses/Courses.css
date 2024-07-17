@@ -42,19 +42,22 @@
         background-color: rgb(255, 255, 255);
         .inner-content{
           font-size: small;
-            padding:10px 2px;
-            margin-top: -5px;
+           
+           
             background-color: rgb(255, 255, 255);
-            .single-content{
-                background-color: hsl(0, 60%, 96%);
-                padding:5px;
-                margin:0px;
-                font-size: small;
-                font-weight: 500;
-            }
-         p{
-            margin: 0px 0px 0px 20px;
-         }
+          
+           p{
+           background-color: gray;
+           padding: 5px 5px;
+           color: white;
+           font-weight: 500;
+           font-size: small;
+           border-radius: 5px 5px 0px 0px ;
+           margin-bottom:0px;
+        }
+     .videoo{
+        margin-right: 2px;
+     }
         }
         margin-bottom: 10px;
     }
@@ -65,18 +68,26 @@ margin: 10px -60px -20px -60px;
 padding: 10px;
 
 color: black;
-        .chapter{
+        .teacher-chapter{
             display: flex;
             gap:10px;
             align-items: center;
             background-color: rgb(246, 245, 245);
             padding: 0.1px;
-    
+            justify-content: space-between;
         
             border: 1px solid rgb(191, 191, 191);
+            .header{
+                display: flex;
+                align-items: center;
+                gap:10px;
+            }
             h5{
                 font-weight: 700;
                margin-left: 10px;
+            }
+            #delete{
+            cursor: pointer;
             }
         }
         .chapter-form{
@@ -159,8 +170,4 @@ color: black;
     input{
         width:50%
     }
-}
-#iframe{
-    min-width: 632px;
-    background-color: rgb(13, 13, 12);
 }

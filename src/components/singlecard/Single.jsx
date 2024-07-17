@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Link} from "react-router-dom"
+import {Link, NavLink} from "react-router-dom"
 import axios from "axios"
 import "./single.css"
 import { MoonLoader } from 'react-spinners'
@@ -22,11 +22,11 @@ const Single = ({cat}) => {
     },[cat])
     console.log(loading)
   return (
-    <div className='single'>
+    <div className='single-cards'>
         {
-            !loading? (data.map((item)=>{
+            !loading? (data.length===0 ? <p className='nocourses'>No courses Found</p>:(data.map((item)=>{
                 return (
-                        <Link style={{textDecoration:"none"}} to={`/course/`+item.course} state={item}>
+                        <NavLink id="link"   style={{ textDecoration: 'none', color: 'inherit' }} to={`/course/`+item.course} state={item}>
                       
                          <div className='card'>
                             <div className='img'>
@@ -43,9 +43,9 @@ const Single = ({cat}) => {
                             </div>
                         </div>
                 
-                    </Link >
+                    </NavLink >
                 )
-            })):<div className='loading'> <MoonLoader color="#36d7b7" /> </div>
+            }))) :<div className='loading'> <MoonLoader color="#36d7b7" /> </div>
         }
     </div>
   )

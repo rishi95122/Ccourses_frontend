@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import "./Courses.css"
 import { CiEdit } from "react-icons/ci";
-
+import { MdDelete } from "react-icons/md";
 import { useLocation, useParams } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import AddChapterContent from "./AddChapterContent";
@@ -67,7 +67,31 @@ const Courses = () => {
       }
       setLoading(false)
     }
+    
+    async function deleteCourseContent(item){
 
+      try {
+    const res= await axios.post(
+         
+          `${process.env.REACT_APP_BACK_API}/course/deletecoursecontent/${item._id}`,
+          {
+            course: name,
+            username: currentUser.username,
+          },
+          {
+            withCredentials: true,
+          }
+        );
+        setData(res.data);
+  }
+    catch(e){
+  console.log(e)
+    }
+    }
+  
+     const  handleDelete =async(item)=>{
+      deleteCourseContent(item)
+     }
   return (
     <div className="main-addcourse">
       <div className="add-course">
@@ -99,15 +123,14 @@ const Courses = () => {
             {data?.map((item,idx) => {
               return (
                 <div>
-                <div className="chapter">
-                  <div>{<h5>{item?.name}</h5>}</div>
-                  <div
-                    onClick={()=>handleEdit(item)}
-                  >
-                    <CiEdit />
+                <div className="teacher-chapter">
+                  <div className="header"><h5>{item?.name}</h5>
+
+                    <CiEdit   onClick={()=>handleEdit(item)}/>
                   </div>
+<MdDelete id="delete" onClick={()=>handleDelete(item)}/>
                 </div>
-                {add.name==item.name&& <AddChapterContent add={add} handleEdit={handleEdit} handleEdit={handleEdit} loading={loading} content={content}  course={name} chapter={item.name} username={currentUser.username} />}
+                {add.name==item.name&& <AddChapterContent add={add} handleEdit={handleEdit} loading={loading} content={content}  course={name} chapter={item.name} username={currentUser.username} />}
                 </div>
               );
             })}

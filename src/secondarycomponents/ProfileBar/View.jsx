@@ -6,11 +6,33 @@ import {MoonLoader} from "react-spinners"
 import { AuthContext } from '../../context/authContext'
 import "./profilebar.css"
 import {Link} from "react-router-dom"
+import { MdDelete } from "react-icons/md";
 const View = () => {
     const {currentUser}=useContext(AuthContext)
     const [data,setData]=useState(null)
-    const token=Cookies.get("access_token")
-   console.log("dsd",token)
+const token=""
+    
+  async function deleteCourse(item){
+
+    try {
+  const res= await axios.post(
+       
+        `${process.env.REACT_APP_BACK_API}/course/delete/${item._id}`,
+        { name: currentUser.username },
+        {
+          withCredentials: true,
+        }
+      );
+      setData(res.data);
+}
+  catch(e){
+console.log(e)
+  }
+  }
+
+   const  handleDelete =async(item)=>{
+   deleteCourse(item)
+   }
     useEffect(()=>{
        
         async function getData() {
@@ -42,6 +64,7 @@ const View = () => {
             {
                data ? (data?.map((item)=>{
                     return  <div className='card'>
+                      <MdDelete id="delete" onClick={()=>handleDelete(item)}/>
                     <div className='img'>
                         <img src={`http://res.cloudinary.com/drlewouwd/image/upload/v1710917678/${item.image}.png`} />
 

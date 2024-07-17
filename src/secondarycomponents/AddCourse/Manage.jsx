@@ -30,6 +30,7 @@ function submitData(e){
 } 
 
   const handleClick=async ()=>{
+  
     try{
       await axios.post(`${process.env.REACT_APP_BACK_API}/course/add`,{
         name:input,
@@ -42,8 +43,9 @@ function submitData(e){
       nav("/teacher/view")
     }
     catch(err){
-     toast(err.response.data)
+      console.log(err)
     }
+    console.log("clicked")
   }
   return (
     <div className='main-addcourse'>

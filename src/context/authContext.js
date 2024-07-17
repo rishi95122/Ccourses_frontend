@@ -5,10 +5,10 @@ import Cookies from 'js-cookie';
  export const AuthContext =createContext()
 
  const AuthContextProvider=({children})=>{
-const [currentUser,setCurrentUser]=useState(Cookies.get("access_token")?(JSON.parse(localStorage.getItem("user"))||null):null)
+const [currentUser,setCurrentUser]=useState(JSON.parse(localStorage.getItem("user"))||null)
 const nav= useNavigate()
 const [input,setInput] =useState("")
-
+ 
 const register= async(data)=>{
   
     try{

@@ -48,7 +48,15 @@
             background-color: rgb(255, 255, 255);
        
          p{
-           
+           background-color: gray;
+           padding: 5px 5px;
+           color: white;
+           font-weight: 500;
+           font-size: small;
+           border-radius: 5px 5px 0px 0px ;
+        }
+        .video{
+            margin-left: 20px;
         }
         }
         margin-bottom: 10px;
