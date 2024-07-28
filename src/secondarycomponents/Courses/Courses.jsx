@@ -18,7 +18,7 @@ const Courses = () => {
   const [content, setContent] = useState();
   const [input, setInput] = useState("");
   const [loading,setLoading]=useState(false)
-
+  
 
   const handleClick = async (e) => {
     e.preventDefault()
@@ -52,6 +52,11 @@ const Courses = () => {
   }, []);
  
   async function handleEdit(item){
+    if(item?.name===add?.name)
+     {
+      setAdd({})
+      return;
+     }
     setLoading(true)
     setAdd(item)
     try {
@@ -94,7 +99,7 @@ const Courses = () => {
      }
   return (
     <div className="main-addcourse">
-      <div className="add-course">
+      <div className="add-courseT">
         <div className="view-course">
           <div className="view-content">
             <div className="img">
@@ -104,7 +109,7 @@ const Courses = () => {
             </div>
 
             <h1>{location.course}</h1>
-            <p>{location.description}</p>
+            <p className="description">{location.description}</p>
           </div>
           <div className="chapters">
             <div className="chapter-form">
@@ -123,14 +128,14 @@ const Courses = () => {
             {data?.map((item,idx) => {
               return (
                 <div>
-                <div className="teacher-chapter">
+                <div className="teacher-chapter"  onClick={()=>handleEdit(item)}>
                   <div className="header"><h5>{item?.name}</h5>
 
-                    <CiEdit   onClick={()=>handleEdit(item)}/>
+                    <CiEdit  />
                   </div>
 <MdDelete id="delete" onClick={()=>handleDelete(item)}/>
                 </div>
-                {add.name==item.name&& <AddChapterContent add={add} handleEdit={handleEdit} loading={loading} content={content}  course={name} chapter={item.name} username={currentUser.username} />}
+                {add?.name===item?.name&& <AddChapterContent add={add} handleEdit={handleEdit} loading={loading} content={content}  course={name} chapter={item.name} username={currentUser.username} />}
                 </div>
               );
             })}

@@ -11,7 +11,7 @@ const Profilebar = () => {
       {currentUser?.user == "Teacher" ? (
         <div>
      
-          <NavLink style={{ textDecoration: "none" }} to="/teacher/manage">
+          <NavLink style={{ textDecoration: "none" ,color:"inherit"}} to="/teacher/manage">
 
             <p
               style={{
@@ -27,7 +27,7 @@ const Profilebar = () => {
               Add Courses
             </p>
           </NavLink>{" "}
-          <NavLink style={{ textDecoration: "none" }} to="/teacher/view">
+          <NavLink style={{ textDecoration: "none" ,color:"inherit"}} to="/teacher/view">
             <p
               style={{
                 textDecoration: "none",
@@ -42,7 +42,7 @@ const Profilebar = () => {
               View Courses
             </p>
           </NavLink>{" "}
-          <NavLink style={{ textDecoration: "none" }} to="/courses">
+          <NavLink style={{ textDecoration: "none" ,color:"inherit"}} to="/courses">
             <p
               style={{
                 textDecoration: "none",

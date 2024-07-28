@@ -31,7 +31,7 @@ setSearch(res)
         {input.length>0&& <div >
                     {
                         search?.map((item)=>{
-                           return <Link style={{textDecoration:"none"}} to={"/course/"+item.course} state={item} ><div className='section-item'>
+                           return <Link style={{ textDecoration: "none" ,color:"inherit"}} to={"/course/"+item.course} state={item} ><div className='section-item'>
                                       <img src={`http://res.cloudinary.com/drlewouwd/image/upload/v1710917678/${item.image}.png`} />
                            <div>
                             <h5>{item.course}</h5>

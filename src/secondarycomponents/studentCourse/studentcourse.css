@@ -3,10 +3,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  width: 100%;
    gap:10px;
     background-color: rgb(46, 43, 43);
     color:white;
-
+    
     .form{
         background-color: white ;
         padding: 40px;
@@ -15,7 +16,9 @@
     }
     .view-course{
         margin: 20px 60px;
+      
         .view-content{
+            width: 100%;
             .img{
                 width:90%;
                 height: 350px;
@@ -25,35 +28,32 @@
                
                 border-radius: 10px;
             }
-            p{
-                font-size: small;
-                width: 500px;
-            }
+          .description{
+           
+          }
         }
     }
-    .view-content{
-       
-        padding: 0px;
-        margin: 0px;
-    }
-   
     .content{
        border: 1px solid gray;
         background-color: rgb(255, 255, 255);
         cursor: pointer;
         .inner-content{
           font-size: small;
-            padding:10px;
-            margin-top: -5px;
+          
+          
             background-color: rgb(255, 255, 255);
        
          p{
-           background-color: gray;
-           padding: 5px 5px;
-           color: white;
-           font-weight: 500;
-           font-size: small;
-           border-radius: 5px 5px 0px 0px ;
+            background-color: rgb(197, 214, 246);
+        
+            color: white;
+            font-weight: 500;
+            font-size: small;
+            padding: 15px 20px;
+            margin: 0px;
+            font-weight: 700;
+            border-bottom: 2px solid gray;
+        
         }
         .video{
             margin-left: 20px;
@@ -135,15 +135,17 @@ color: black;
     }
 }
 
-.main-addcourse{
+/* .main-addcourse{
     display: flex;
     justify-content: center;
     height: 100%;
     min-height: 100vh;
     background-color: rgb(229, 239, 239);
     min-width: 632px;
-    }
+    } */
 
-    .loading{
-        margin-left:250px;
-        }
+    .loadingg{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+       }

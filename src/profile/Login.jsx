@@ -29,6 +29,7 @@ const Login = () => {
     
   }
   useEffect(()=>{
+  
 const interval= setInterval(()=>{
 if(seconds>0)
   {
@@ -46,11 +47,11 @@ return ()=>{
   },[seconds])
 
   const handleOtp=async ()=>{
-    setSeconds(30)
-    setResend(true)
+ 
     try{
       const err= await axios.post(`${process.env.REACT_APP_BACK_API}/auth/mail`,{email:email})
-        setErr(err)
+        setSeconds(30)
+        setResend(true)
       }
       catch(err){
         setErr(err.response.data)

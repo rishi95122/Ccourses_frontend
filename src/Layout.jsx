@@ -14,7 +14,7 @@ import StudentCourse from './secondarycomponents/studentCourse/StudentCourse'
 import Forgot from './profile/Forgot'
 const Layout = () => {
   return (
-    <div>
+    <div >
         <Navbar/>
     <Routes>
 

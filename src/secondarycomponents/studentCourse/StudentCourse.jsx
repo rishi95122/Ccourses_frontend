@@ -6,6 +6,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 
 import ViewStudentContent from "./ViewStudentContent";
+import { Paper, Typography } from "@mui/material";
 const StudentCourse = () => {
   const { name } = useParams();
   const location = useLocation().state;
@@ -17,17 +18,7 @@ const StudentCourse = () => {
   const [loading,setLoading]=useState(false)
 
 
-  const handleClick = async () => {
-    try {
-      await axios.post(`${process.env.REACT_APP_BACK_API}/course/addCourse`, {
-        name: input,
-        course: name,
-        username: currentUser.username,
-      });
-    } catch (err) {
-    
-    }
-  };
+ 
   useEffect(() => {
     async function getCourses() {
       try {
@@ -45,6 +36,11 @@ const StudentCourse = () => {
   }, []);
  
   async function handleEdit(item){
+    if(item?.name===add)
+      {
+       setAdd({})
+       return;
+      }
     setLoading(true)
     setAdd(item.name)
     try {
@@ -62,7 +58,7 @@ const StudentCourse = () => {
       }
       setLoading(false)
     }
-
+console.log("dsadas",data)
   return (
     <div className="main-addcourse">
       <div className="add-course">
@@ -82,11 +78,15 @@ const StudentCourse = () => {
               <h2>Course Content</h2>
     
             </div>
+            {!data && <Paper elevation={24}>
+             <Typography variant="h6" p={3} textAlign='center' color='red'>
+             Please Login to view Content!!!
+              </Typography></Paper>}
             {data?.map((item,idx) => {
               return (
                 <div>
-                <div className="chapter">
-                  <div  onClick={()=>handleEdit(item)}>{<h5 >{item?.name}</h5>}</div>
+                <div className="chapter"  onClick={()=>handleEdit(item)}>
+                  <div >{<h5 >{item?.name}</h5>}</div>
                 </div>
                 {add==item.name&& <ViewStudentContent content={content} loading={loading} />}
                 </div>

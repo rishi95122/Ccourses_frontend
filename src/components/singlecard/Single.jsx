@@ -45,7 +45,7 @@ const Single = ({cat}) => {
                 
                     </NavLink >
                 )
-            }))) :<div className='loading'> <MoonLoader color="#36d7b7" /> </div>
+            }))) :<div className='loadingg'> <MoonLoader color="#36d7b7" /> </div>
         }
     </div>
   )

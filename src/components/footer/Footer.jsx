@@ -1,10 +1,15 @@
 import "./footer.css"
 import logo from "../../logo-udemy-inverted.svg"
+import { IconButton } from "@mui/material"
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 const Footer = () => {
   return (
     <div className='footer'>
-        <img src={logo}/>
-        <p>2024 Udemy.inc</p>
+       <IconButton sx={{color:"white"}}>
+        <LibraryBooksIcon fontSize="large" />
+       </IconButton>
+
+        <p>2024 CCourses.inc</p>
     </div>
   )
 }

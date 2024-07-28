@@ -5,6 +5,8 @@ import { MoonLoader } from "react-spinners";
 import VideoUpload from "../../VideoUpload/VideoUpload";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {Box, Button, Paper, Stack, TextField, Typography} from "@mui/material"
+import ReactPlayer from "react-player";
 const AddChapterContent = ({
   course,
   chapter,
@@ -49,7 +51,7 @@ const AddChapterContent = ({
   }
   return (
     <div className="addcontent">
-      <div className="addcontentform">
+      {/* <div className="addcontentform">
         <VideoUpload setUrl={setUrl} />
         <p>Or</p>
         <input
@@ -58,7 +60,20 @@ const AddChapterContent = ({
           onChange={handleUrl}
         />
         <button onClick={handleClick}>Add</button>
-      </div>
+      </div> */}
+      <Paper elevation={24}>
+        <Stack  direction='row' alignItems='center' justifyContent='space-between' p={1}>
+        <VideoUpload setUrl={setUrl} />
+        <Typography variant="h4">OR</Typography>
+        <Box sx={{display:"flex",alignItems:"center",p:1,gap:1}}>
+        
+        <TextField label="Enter Youtube URL" size="small"/>
+        <Button sx={{}} >Add</Button>
+        </Box>
+       
+        </Stack>
+   
+      </Paper>
 
       <div className="content">
         {!loading ? (
@@ -74,14 +89,11 @@ const AddChapterContent = ({
                 <p> Video {idx + 1} </p>
                 <div className="videoo">
                   {open === idx && (
-                    <iframe
+                    <ReactPlayer
                       width="100%"
                       height={400}
-                      src={item.contentname}
-                      title="YouTube video player"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen="true"
+                      url={item.contentname}
+                      controls
                     />
                   )}
                 </div>
@@ -89,7 +101,7 @@ const AddChapterContent = ({
             );
           })
         ) : (
-          <div className="loading">
+          <div className="loadingg">
             {" "}
             <MoonLoader color="#36d7b7" />{" "}
           </div>

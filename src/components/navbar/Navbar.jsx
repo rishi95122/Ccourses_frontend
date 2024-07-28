@@ -10,6 +10,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Profilebar from "../../secondarycomponents/ProfileBar/Profilebar";
 import axios from "axios";
 import NavSearch from "./navsearch/NavSearch";
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import { IconButton } from "@mui/material";
 const Navbar = () => {
   const { currentUser, setCurrentUser } = useContext(AuthContext);
   const [cat, setCat] = useState(false);
@@ -39,7 +41,9 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="img">
-        <img src={logo} onClick={() => nav("/")} />
+       <IconButton sx={{color:"black"}}>
+        <LibraryBooksIcon fontSize="large" onClick={()=>nav('/')}/>
+       </IconButton>
 
         {/* <div
     
@@ -81,7 +85,7 @@ const Navbar = () => {
    
 
       <div className="login">
-        {bar && <Profilebar />}
+        {bar && <Profilebar id="profilebar"/>}
         {currentUser ? (
           <div className="login">
             <CgProfile size={20} />{" "}
