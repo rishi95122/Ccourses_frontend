@@ -12,7 +12,7 @@ const Single = ({cat}) => {
         async function getData(){
             setLoading(true)
             const dataa=await axios.post(`${process.env.REACT_APP_BACK_API}/course/getcoursesBycategory`,{
-                category:cat
+                category:cat || "Web Development"
             })
            setData(dataa.data)
            setLoading(false)
@@ -20,7 +20,7 @@ const Single = ({cat}) => {
         getData()
        
     },[cat])
-    console.log(loading)
+ 
   return (
     <div className='single-cards'>
         {

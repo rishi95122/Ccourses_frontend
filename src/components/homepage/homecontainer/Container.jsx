@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { data} from '../../../store/categories'
 import Single from '../../singlecard/Single'
 import "./container.css"
@@ -7,13 +7,12 @@ const [cat,setCat]=useState("Web Development")
 const handleSub=(item)=>{
   setCat(item.category)
 } 
-console.log("dsf",process.env.REACT_APP_BACK_API)
+
   return (
     <div className='container'>
         <div>
-        <h2>All the skills you need in one place</h2>
-        <p>From critical workplace skills to technical topics, our catalog supports well-rounded professional development.
-</p>
+        <h2>All best Courses you need in one place</h2>
+       
         </div>
         <div className='categories'>
             {
@@ -23,7 +22,7 @@ console.log("dsf",process.env.REACT_APP_BACK_API)
             }
         </div>
       
-         <Single cat={cat} />
+         <Single cat={cat} setCat={setCat}/>
        
     </div>
   )
