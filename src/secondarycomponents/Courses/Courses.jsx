@@ -8,6 +8,7 @@ import { AuthContext } from "../../context/authContext";
 import AddChapterContent from "./AddChapterContent";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { MoonLoader } from "react-spinners";
 
 const Courses = () => {
   const { name } = useParams();
@@ -18,30 +19,35 @@ const Courses = () => {
   const [content, setContent] = useState();
   const [input, setInput] = useState("");
   const [loading,setLoading]=useState(false)
-  
+  const [courseData, setcourseData] = useState();
+  const courseName= name.split("=")
 
   const handleClick = async (e) => {
+    setLoading(true)
     e.preventDefault()
     try {
       await axios.post(`${process.env.REACT_APP_BACK_API}/course/addCourse`, {
         name: input,
-        course: name,
+        course: courseName[0],
         username: currentUser.username,
       });
       getCourses();
+      setLoading(false)
     } catch (err) {
    toast(err.response.data)
     }
    
   };
  const  getCourses=async ()=> {
+  setLoading(true)
     try {
       const course = await axios.post(`${process.env.REACT_APP_BACK_API}/course/getcourses`, {
-        username: currentUser.username,
-        course: name,
+        username: courseName[1],
+          course: courseName[0],
       });
 
       setData(course.data);
+      setLoading(false)
     } catch (err) {
      
     }
@@ -50,7 +56,24 @@ const Courses = () => {
    
     getCourses();
   }, []);
- 
+  useEffect(()=>{
+    setLoading(true)
+    async function getCourseData() {
+      try {
+        const course = await axios.post(`${process.env.REACT_APP_BACK_API}/course/getCourseData`, {
+          username: courseName[1],
+          course: courseName[0],
+        });
+  
+        setcourseData(course.data);
+        setLoading(false)
+      } catch (err) {
+       
+      }
+    }
+    setLoading(false)
+    getCourseData();
+  },[])
   async function handleEdit(item){
     if(item?.name===add?.name)
      {
@@ -61,8 +84,8 @@ const Courses = () => {
     setAdd(item)
     try {
       const dataa=await axios.post(`${process.env.REACT_APP_BACK_API}/chapter/getContent`, {
-          username: currentUser.username,
-          course: name,
+        username: courseName[1],
+        course: courseName[0],
           chapter:item.name,
       
         });
@@ -80,7 +103,7 @@ const Courses = () => {
          
           `${process.env.REACT_APP_BACK_API}/course/deletecoursecontent/${item._id}`,
           {
-            course: name,
+            course: courseName[0],
             username: currentUser.username,
           },
           {
@@ -99,17 +122,19 @@ const Courses = () => {
      }
   return (
     <div className="main-addcourse">
-      <div className="add-courseT">
+      {
+        !loading ?<div className="add-courseT">
         <div className="view-course">
           <div className="view-content">
             <div className="img">
               <img
-                src={`http://res.cloudinary.com/drlewouwd/image/upload/v1710917678/${location.image}.png`}
+              loading="lazy"
+                src={`http://res.cloudinary.com/drlewouwd/image/upload/v1710917678/${courseData?.image||location?.image}.png`}
               />
             </div>
 
-            <h1>{location.course}</h1>
-            <p className="description">{location.description}</p>
+            <h1>{courseData?.course||location?.course}</h1>
+            <p className="description">{courseData?.description||location?.description}</p>
           </div>
           <div className="chapters">
             <div className="chapter-form">
@@ -141,7 +166,12 @@ const Courses = () => {
             })}
           </div>
         </div>
-      </div>
+      </div>: <div className="loadingg">
+            {" "}
+            <MoonLoader color="#36d7b7" />{" "}
+          </div>
+      }
+      
       <ToastContainer />
     </div>
   );

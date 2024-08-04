@@ -26,7 +26,7 @@ const Single = ({cat}) => {
         {
             !loading? (data.length===0 ? <p className='nocourses'>No courses Found</p>:(data.map((item)=>{
                 return (
-                        <NavLink id="link"   style={{ textDecoration: 'none', color: 'inherit' }} to={`/course/`+item.course} state={item}>
+                        <NavLink id="link"   style={{ textDecoration: 'none', color: 'inherit' }} to={`/course/`+item.course +'='+item.username} state={item}>
                       
                          <div className='card'>
                             <div className='img'>

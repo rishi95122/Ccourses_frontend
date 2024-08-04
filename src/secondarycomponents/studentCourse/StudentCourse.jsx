@@ -14,17 +14,32 @@ const StudentCourse = () => {
   const { currentUser } = useContext(AuthContext);
   const [data, setData] = useState();
   const [content, setContent] = useState();
-  const [input, setInput] = useState("");
+  const [courseData, setcourseData] = useState();
   const [loading,setLoading]=useState(false)
 
+  const courseName= name.split("=")
 
- 
+useEffect(()=>{
+  async function getCourseData() {
+    try {
+      const course = await axios.post(`${process.env.REACT_APP_BACK_API}/course/getCourseData`, {
+        username: courseName[1],
+        course: courseName[0],
+      });
+
+      setcourseData(course.data);
+    } catch (err) {
+     
+    }
+  }
+  getCourseData();
+},[])
   useEffect(() => {
     async function getCourses() {
       try {
         const course = await axios.post(`${process.env.REACT_APP_BACK_API}/course/getcourses`, {
-          username: currentUser.username,
-          course: name,
+          username: courseName[1],
+          course: courseName[0],
         });
 
         setData(course.data);
@@ -34,7 +49,7 @@ const StudentCourse = () => {
     }
     getCourses();
   }, []);
- 
+ console.log("dasasasasasasasdds",courseData)
   async function handleEdit(item){
     if(item?.name===add)
       {
@@ -45,10 +60,9 @@ const StudentCourse = () => {
     setAdd(item.name)
     try {
       const dataa=await axios.post(`${process.env.REACT_APP_BACK_API}/chapter/getContent`, {
-          username: currentUser.username,
-          course: name,
+          username: courseName[1],
+          course: courseName[0],
           chapter:item.name,
-      
         });
      
         setContent(dataa.data)
@@ -66,23 +80,23 @@ console.log("dsadas",data)
           <div className="view-content">
             <div className="img">
               <img
-                src={`http://res.cloudinary.com/drlewouwd/image/upload/v1710917678/${location.image}.png`}
+                src={`http://res.cloudinary.com/drlewouwd/image/upload/v1710917678/${courseData?.image}.png`}
               />
             </div>
 
-            <h1>{location.course}</h1>
-            <p>{location.description}</p>
+            <h1>{courseData?.course}</h1>
+            <p>{courseData?.description}</p>
           </div>
           <div className="chapters">
             <div className="chapter-form">
               <h2>Course Content</h2>
     
             </div>
-            {!data && <Paper elevation={24}>
+            {!currentUser ? <Paper elevation={24}>
              <Typography variant="h6" p={3} textAlign='center' color='red'>
              Please Login to view Content!!!
-              </Typography></Paper>}
-            {data?.map((item,idx) => {
+              </Typography></Paper>:
+            data?.map((item,idx) => {
               return (
                 <div>
                 <div className="chapter"  onClick={()=>handleEdit(item)}>

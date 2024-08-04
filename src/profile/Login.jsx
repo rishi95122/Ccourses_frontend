@@ -63,6 +63,7 @@ const Login = () => {
           label="Email" 
           variant="outlined" 
           fullWidth 
+            size='small'
           margin="dense"
           onChange={(e) => setEmail(e.target.value)} 
         />
@@ -70,7 +71,8 @@ const Login = () => {
         <TextField 
           label="Password" 
           variant="outlined" 
-          type="password" 
+          type="password"
+          size='small' 
           fullWidth 
           margin="dense"
           onChange={(e) => setPassword(e.target.value)} 
@@ -81,6 +83,7 @@ const Login = () => {
           variant="outlined" 
           fullWidth 
           margin="dense"
+            size='small'
           onChange={(e) => setOtp(e.target.value)} 
         />
 

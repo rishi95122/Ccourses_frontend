@@ -37,6 +37,7 @@ const Register = () => {
           variant="outlined" 
           fullWidth 
           margin="normal" 
+          size='small'
           onChange={(e) => setEmail(e.target.value)}
         />
         
@@ -44,7 +45,7 @@ const Register = () => {
           label="Username" 
           variant="outlined" 
           fullWidth 
-         
+           size='small'
           onChange={(e) => setUsername(e.target.value)}
         />
 
@@ -52,6 +53,7 @@ const Register = () => {
           <InputLabel>User Type</InputLabel>
           <Select
             value={user}
+              size='small'
             label="User Type"
             onChange={(e) => setUser(e.target.value)}
           >
@@ -65,7 +67,7 @@ const Register = () => {
           variant="outlined" 
           type="password" 
           fullWidth 
-          
+            size='small'
           onChange={(e) => setPassword(e.target.value)}
         />
         
