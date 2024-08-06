@@ -122,8 +122,7 @@ const Courses = () => {
      }
   return (
     <div className="main-addcourse">
-      {
-        !loading ?<div className="add-courseT">
+     <div className="add-courseT">
         <div className="view-course">
           <div className="view-content">
             <div className="img">
@@ -136,6 +135,7 @@ const Courses = () => {
             <h1>{courseData?.course||location?.course}</h1>
             <p className="description">{courseData?.description||location?.description}</p>
           </div>
+          {(!loading && !data)?<div className='loadingg'> <MoonLoader color="#36d7b7" /> </div>:
           <div className="chapters">
             <div className="chapter-form">
               <h2>Course Content</h2>
@@ -164,13 +164,9 @@ const Courses = () => {
                 </div>
               );
             })}
-          </div>
+          </div>}
         </div>
-      </div>: <div className="loadingg">
-            {" "}
-            <MoonLoader color="#36d7b7" />{" "}
-          </div>
-      }
+      </div>
       
       <ToastContainer />
     </div>

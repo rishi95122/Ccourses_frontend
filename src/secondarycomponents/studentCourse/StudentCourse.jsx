@@ -7,6 +7,7 @@ import { AuthContext } from "../../context/authContext";
 
 import ViewStudentContent from "./ViewStudentContent";
 import { Paper, Typography } from "@mui/material";
+import { MoonLoader } from "react-spinners";
 const StudentCourse = () => {
   const { name } = useParams();
   const location = useLocation().state;
@@ -87,7 +88,7 @@ console.log("dsadas",data)
             <h1>{courseData?.course}</h1>
             <p>{courseData?.description}</p>
           </div>
-          <div className="chapters">
+          {(!loading && !data)?<div className='loadingg'> <MoonLoader color="#36d7b7" /> </div>:<div className="chapters">
             <div className="chapter-form">
               <h2>Course Content</h2>
     
@@ -106,7 +107,8 @@ console.log("dsadas",data)
                 </div>
               );
             })}
-          </div>
+          </div>}
+          
         </div>
       </div>
     </div>
