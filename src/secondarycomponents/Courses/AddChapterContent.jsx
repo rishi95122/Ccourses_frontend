@@ -26,6 +26,8 @@ const AddChapterContent = ({
           course: course,
           chapter: chapter,
           content: url,
+        },{
+          withCredentials:true
         })
         .then(() => {
           handleEdit(add);

@@ -12,6 +12,21 @@ const Register = () => {
   const [err, setErr] = useState('');
 
   const handleRegister = async () => {
+    if(!email)
+     {
+      setErr("Enter email")
+      return;
+     }
+    if(password.length<=8)
+    {
+      setErr("Password must be greater than 8")
+      return
+    }
+    if(username.length<=3)
+      {
+        setErr("Username must be greater than 3")
+        return
+      }
     const data = {
       email: email,
       username: username,

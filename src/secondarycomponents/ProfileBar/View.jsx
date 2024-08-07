@@ -10,8 +10,7 @@ import { MdDelete } from "react-icons/md";
 const View = () => {
     const {currentUser}=useContext(AuthContext)
     const [data,setData]=useState(null)
-const token=""
-    
+
   async function deleteCourse(item){
 
     try {
@@ -42,9 +41,7 @@ console.log(e)
                 { name: currentUser.username },
                 {
                   withCredentials: true,
-                  headers: {
-                    'authorization': 'Bearer ' + token
-                  }
+                 
                 }
               );
               

@@ -9,6 +9,7 @@ import AddChapterContent from "./AddChapterContent";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { MoonLoader } from "react-spinners";
+import { Paper } from "@mui/material";
 
 const Courses = () => {
   const { name } = useParams();
@@ -30,6 +31,8 @@ const Courses = () => {
         name: input,
         course: courseName[0],
         username: currentUser.username,
+      },{
+        withCredentials:true
       });
       getCourses();
       setLoading(false)
@@ -44,6 +47,8 @@ const Courses = () => {
       const course = await axios.post(`${process.env.REACT_APP_BACK_API}/course/getcourses`, {
         username: courseName[1],
           course: courseName[0],
+      },{
+        withCredentials:true
       });
 
       setData(course.data);
@@ -63,6 +68,8 @@ const Courses = () => {
         const course = await axios.post(`${process.env.REACT_APP_BACK_API}/course/getCourseData`, {
           username: courseName[1],
           course: courseName[0],
+        },{
+          withCredentials:true
         });
   
         setcourseData(course.data);
@@ -88,6 +95,8 @@ const Courses = () => {
         course: courseName[0],
           chapter:item.name,
       
+        },{
+          withCredentials:true
         });
         setContent(dataa.data)
       } catch (err) {
@@ -124,6 +133,9 @@ const Courses = () => {
     <div className="main-addcourse">
      <div className="add-courseT">
         <div className="view-course">
+        
+
+       
           <div className="view-content">
             <div className="img">
               <img
@@ -135,8 +147,10 @@ const Courses = () => {
             <h1>{courseData?.course||location?.course}</h1>
             <p className="description">{courseData?.description||location?.description}</p>
           </div>
-          {(!loading && !data)?<div className='loadingg'> <MoonLoader color="#36d7b7" /> </div>:
-          <div className="chapters">
+       
+          {(loading)?<div className='loadingg'> <MoonLoader color="#36d7b7" /> </div>:
+          <Paper variant="elevation" elevation={24} >
+ <div className="chapters">
             <div className="chapter-form">
               <h2>Course Content</h2>
               <form  onSubmit={handleClick} className="addnewchapter">
@@ -164,7 +178,9 @@ const Courses = () => {
                 </div>
               );
             })}
-          </div>}
+          </div>
+          </Paper>
+         }
         </div>
       </div>
       

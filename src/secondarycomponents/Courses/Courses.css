@@ -16,9 +16,10 @@
     }
     .view-course{
         margin: 20px 60px;
-      
+      width:100%;
+    
         .view-content{
-            width: 100%;
+           margin:20px;
             .img{
                 width:90%;
                 height: 350px;
@@ -29,6 +30,9 @@
                 border-radius: 10px;
             }
           .description{
+          
+          }
+          h1{
            
           }
         }
@@ -63,12 +67,13 @@
     }
 
     .chapters{
-background-color: rgb(255, 255, 255);
-margin: 10px -60px -20px -60px;
+background-color: rgb(246, 239, 239);
+
 padding: 10px;
 
 color: black;
         .teacher-chapter{
+           
             display: flex;
             gap:10px;
             align-items: center;
@@ -94,7 +99,7 @@ color: black;
             display: flex;
             align-items: center;
             justify-content: space-between;
-
+            width: 100%;
             .addnewchapter{
                 display: flex;
                 justify-content: center;

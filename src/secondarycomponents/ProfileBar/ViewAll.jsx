@@ -15,6 +15,8 @@ const {input} =useContext(AuthContext)
    getData().then(function (res){
       setData(res)
 setSearch(res)
+    }).catch(()=>{
+      throw new Error("Error")
     })
 
     },[])

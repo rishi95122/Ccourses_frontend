@@ -1,14 +1,16 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
  export const AuthContext =createContext()
 
  const AuthContextProvider=({children})=>{
-const [currentUser,setCurrentUser]=useState(JSON.parse(localStorage.getItem("user"))||null)
+const [currentUser,setCurrentUser]=useState()
 const nav= useNavigate()
 const [input,setInput] =useState("")
- 
+
+
+
 const register= async(data)=>{
   
     try{
@@ -40,7 +42,7 @@ const login= async(data)=>{
         withCredentials:true
        } );
 
-        localStorage.setItem("user",JSON.stringify(user.data))
+      
         setCurrentUser(user.data)
         nav("/")
       }

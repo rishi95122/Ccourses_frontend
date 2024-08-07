@@ -49,7 +49,7 @@ justify-content: space-around;
         }
         h5,p{
             margin: 0px;
-
+            word-wrap: break-word;
         }
         h6{
             margin:8px 0px;

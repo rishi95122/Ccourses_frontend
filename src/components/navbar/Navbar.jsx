@@ -21,11 +21,11 @@ const Navbar = () => {
   const location = useLocation();
 
   async function handleLogout() {
-    localStorage.clear();
-
     setCurrentUser(null);
     try {
-      await axios.post(`${process.env.REACT_APP_BACK_API}/auth/logout`);
+      await axios.get(`${process.env.REACT_APP_BACK_API}/auth/logout`,{
+        withCredentials:true
+      });
     } catch (err) {
      
     }

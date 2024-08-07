@@ -21,14 +21,18 @@ const StudentCourse = () => {
   const courseName= name.split("=")
 
 useEffect(()=>{
+  setLoading(true)
   async function getCourseData() {
     try {
       const course = await axios.post(`${process.env.REACT_APP_BACK_API}/course/getCourseData`, {
         username: courseName[1],
         course: courseName[0],
+      },{
+        withCredentials:true
       });
 
       setcourseData(course.data);
+      setLoading(false)
     } catch (err) {
      
     }
@@ -36,14 +40,18 @@ useEffect(()=>{
   getCourseData();
 },[])
   useEffect(() => {
+    setLoading(true)
     async function getCourses() {
       try {
         const course = await axios.post(`${process.env.REACT_APP_BACK_API}/course/getcourses`, {
           username: courseName[1],
           course: courseName[0],
+        },{
+          withCredentials:true
         });
 
         setData(course.data);
+        setLoading(false)
       } catch (err) {
        
       }
@@ -64,14 +72,16 @@ useEffect(()=>{
           username: courseName[1],
           course: courseName[0],
           chapter:item.name,
+        },{
+          withCredentials:true
         });
      
         setContent(dataa.data)
-       
+        setLoading(false)
       } catch (err) {
        
       }
-      setLoading(false)
+   
     }
 console.log("dsadas",data)
   return (
@@ -88,12 +98,12 @@ console.log("dsadas",data)
             <h1>{courseData?.course}</h1>
             <p>{courseData?.description}</p>
           </div>
-          {(!loading && !data)?<div className='loadingg'> <MoonLoader color="#36d7b7" /> </div>:<div className="chapters">
+          {(loading)?<div className='loadingg'> <MoonLoader color="#36d7b7" /> </div>:<div className="chapters">
             <div className="chapter-form">
               <h2>Course Content</h2>
     
             </div>
-            {!currentUser ? <Paper elevation={24}>
+            {!currentUser && !loading ? <Paper elevation={24}>
              <Typography variant="h6" p={3} textAlign='center' color='red'>
              Please Login to view Content!!!
               </Typography></Paper>:

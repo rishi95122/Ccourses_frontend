@@ -38,6 +38,8 @@ function submitData(e){
         image:image,
         description:desc,
         category:category
+      },{
+        withCredentials:true
       })
 
       nav("/teacher/view")
