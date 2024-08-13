@@ -44,9 +44,18 @@
             }
         }
         .login{
-            
-            .log,.singup,p{
+            p{
+                cursor: pointer;
+              font-weight: 600;
+              }
+            .log,.singup{
                cursor: pointer;
+               font-weight: 600;
+               &:hover{
+                background-color: aliceblue;
+                transition: 0.5s ease;
+               }
+              
             }
            
         }

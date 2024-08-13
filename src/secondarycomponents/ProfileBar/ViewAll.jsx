@@ -46,7 +46,7 @@ setSearch(res)
                     <h5>{item?.course}</h5>
                     
                     <h6>{item?.category}</h6>
-                    <Link to={"/course/"+item.course+'='+item.username} state={item}><button>Open</button></Link>
+                    <Link to={"/course/"+item.course+'='+item.username} state={item}><button>Preview Course</button></Link>
                     
                     </div>
                 </div>

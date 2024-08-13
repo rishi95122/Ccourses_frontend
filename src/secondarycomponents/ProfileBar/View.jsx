@@ -71,7 +71,7 @@ console.log(e)
                     <h5>{item?.course}</h5>
                   
                     <h6>{item?.category}</h6>
-                    <Link to={"/teacher/course/"+item.course+'='+item.username} state={item}><button>Add Content</button></Link>
+                    <Link to={"/teacher/course/"+item.course+'='+item.username} state={item}><button>Edit Course</button></Link>
                     
                     </div>
                 </div>

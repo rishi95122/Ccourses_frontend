@@ -11,7 +11,7 @@ const Profilebar = () => {
       {currentUser?.user == "Teacher" ? (
         <div>
      
-          <NavLink style={{ textDecoration: "none" ,color:"inherit"}} to="/teacher/manage">
+          <NavLink  style={{ textDecoration: "none" ,color:"inherit"}} to="/teacher/manage">
 
             <p
               style={{
@@ -20,6 +20,7 @@ const Profilebar = () => {
                 gap: "2px",
                 alignItems: "center",
                 justifyContent: "center",
+             
               }}
             >
             

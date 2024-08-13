@@ -32,14 +32,15 @@ const Navbar = () => {
   }
 
   function handleBar() {
-    setBar(!bar);
+    setBar(true);
 
-    setTimeout(() => {
-      setBar(false);
-    }, 5000);
+  
+  }
+  function handleCloseBar(){
+    setBar(false)
   }
   return (
-    <div className="navbar">
+    <div className="navbar" >
       <div className="img">
        <IconButton sx={{color:"black"}}>
         <LibraryBooksIcon fontSize="large" onClick={()=>nav('/')}/>
@@ -84,12 +85,12 @@ const Navbar = () => {
         </div>
    
 
-      <div className="login">
-        {bar && <Profilebar id="profilebar"/>}
+      <div className="login" onMouseLeave={handleCloseBar}>
+        {bar && <Profilebar  id="profilebar"/>}
         {currentUser ? (
           <div className="login">
             <CgProfile size={20} />{" "}
-            <p onClick={handleBar}>{currentUser.username}</p>{" "}
+            <p onMouseUp={handleBar} >{currentUser.username}</p>{" "}
             <button className="log" onClick={handleLogout}>
               Logout
             </button>
