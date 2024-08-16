@@ -22,7 +22,7 @@ const Courses = () => {
   const [loading, setLoading] = useState(false);
   const [courseData, setcourseData] = useState();
   const courseName = name.split("=");
-
+console.log(courseName)
   const handleClick = async (e) => {
     setLoading(true);
     e.preventDefault();

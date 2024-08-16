@@ -10,7 +10,7 @@ import { MdDelete } from "react-icons/md";
 const View = () => {
     const {currentUser}=useContext(AuthContext)
     const [data,setData]=useState(null)
-
+  const [error,setError]=useState()
   async function deleteCourse(item){
 
     try {
@@ -47,35 +47,37 @@ console.log(e)
               
               setData(response.data);
             } catch (error) {
-              console.error('Error fetching data:', error);
+           setError(error.response.data.msg)
             }
           }
         getData()
     },[])
-
+console.log(data)
   return (
     <div className='single-main'>
         <h1>Your Courses</h1>
         <div className='single'>
             
             {
-               data ? (data?.map((item)=>{
-                    return  <div className='card'>
-                      <MdDelete id="delete" onClick={()=>handleDelete(item)}/>
-                    <div className='img'>
-                        <img src={`http://res.cloudinary.com/drlewouwd/image/upload/v1710917678/${item.image}.png`} />
+               (data || error )?(
+              !error?(data?.map((item)=>{
+                return  <div className='card'>
+                  <MdDelete id="delete" onClick={()=>handleDelete(item)}/>
+                <div className='img'>
+                    <img src={`http://res.cloudinary.com/drlewouwd/image/upload/v1710917678/${item.image}.png`} />
 
-                    </div>
-                    <div className='text'>
-
-                    <h5>{item?.course}</h5>
-                  
-                    <h6>{item?.category}</h6>
-                    <Link to={"/teacher/course/"+item.course+'='+item.username} state={item}><button>Edit Course</button></Link>
-                    
-                    </div>
                 </div>
-                })):<MoonLoader color="#36d7b7" />
+                <div className='text'>
+
+                <h5>{item?.course}</h5>
+              
+                <h6>{item?.category}</h6>
+                <Link to={"/teacher/course/"+item.course+'='+item.username} state={item}><button>Edit Course</button></Link>
+                
+                </div>
+            </div>
+            })):<div>{error}</div>
+               ) :<MoonLoader color="#36d7b7" />
             }
         </div>
     </div>

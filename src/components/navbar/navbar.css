@@ -44,6 +44,10 @@
             }
         }
         .login{
+         
+           display: flex;
+           gap:1px;
+           justify-content: space-between;
             p{
                 cursor: pointer;
               font-weight: 600;

@@ -13,7 +13,7 @@ const Login = () => {
   const [err, setErr] = useState('');
   const [seconds, setSeconds] = useState();
   const { login } = useContext(AuthContext);
-
+  const [disableOtp,setDisableOtp]=useState(false)
   const handleLogin = async () => {
     const data = {
       email: email,
@@ -64,6 +64,7 @@ const Login = () => {
           variant="outlined" 
           fullWidth 
             size='small'
+            value={email}
           margin="dense"
           onChange={(e) => setEmail(e.target.value)} 
         />
@@ -73,6 +74,7 @@ const Login = () => {
           variant="outlined" 
           type="password"
           size='small' 
+          value={password}
           fullWidth 
           margin="dense"
           onChange={(e) => setPassword(e.target.value)} 
@@ -82,6 +84,7 @@ const Login = () => {
           label="OTP" 
           variant="outlined" 
           fullWidth 
+          value={otp}
           margin="dense"
             size='small'
           onChange={(e) => setOtp(e.target.value)} 
@@ -92,9 +95,9 @@ const Login = () => {
             variant="contained" 
             color="primary" 
             onClick={handleOtp} 
-            disabled={resend} 
+            disabled={resend||disableOtp} 
             fullWidth
-            style={resend ? { backgroundColor: 'gray' } : { backgroundColor: 'rgb(181, 110, 248)' }}
+            style={resend || disableOtp? { backgroundColor: 'gray' } : { backgroundColor: 'rgb(181, 110, 248)' }}
           >
             {resend ? `Resend in ${seconds}` : 'Send OTP'}
           </Button>
@@ -114,6 +117,28 @@ const Login = () => {
         <Box mt={2} textAlign="center">
           <Button variant="outlined" color="secondary">
             <Link className="link" to="/forgot">Forgot Password</Link>
+          </Button>
+        </Box>
+        <Box mt={2}  textAlign="center">
+          <Button
+          onClick={()=>{
+            setEmail('testteacher@test.com')
+            setPassword('123456789')
+            setOtp('236031')
+            setDisableOtp(true)
+          }}
+          sx={{textTransform:'none'}} variant="outlined" color="secondary">
+          Instant Login as Teacher
+          </Button>
+          <Button 
+           onClick={()=>{
+            setEmail('teststudent@test.com')
+            setPassword('123456789')
+            setOtp('273840')
+            setDisableOtp(true)
+          }}
+          sx={{textTransform:'none'}} mt={2} variant="outlined" color="secondary">
+          Instant Login as Student
           </Button>
         </Box>
       </div>

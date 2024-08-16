@@ -89,7 +89,7 @@ const Navbar = () => {
         {bar && <Profilebar  id="profilebar"/>}
         {currentUser ? (
           <div className="login">
-            <CgProfile size={20} />{" "}
+            <CgProfile size={25} />{" "}
             <p onMouseUp={handleBar} >{currentUser.username}</p>{" "}
             <button className="log" onClick={handleLogout}>
               Logout

@@ -60,7 +60,7 @@ const Profilebar = () => {
           </NavLink>{" "}
         </div>
       ) : (
-        <NavLink to="/courses">
+        <NavLink style={{ textDecoration: "none" ,color:"inherit"}} to="/courses">
           <p>View All Courses</p>
         </NavLink>
       )}

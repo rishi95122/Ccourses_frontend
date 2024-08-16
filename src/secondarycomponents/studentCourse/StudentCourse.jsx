@@ -19,7 +19,7 @@ const StudentCourse = () => {
   const [loading,setLoading]=useState(false)
 
   const courseName= name.split("=")
-
+  console.log(courseName)
 useEffect(()=>{
   setLoading(true)
   async function getCourseData() {
