@@ -1,4 +1,12 @@
-
+:root{
+  --bg:#0d0c22;
+  --bgSoft:#151335;
+  --text:white;
+  --textSoft:#e5e5e5;
+  --btn:#3673fd
+}
 body{
-  background-color: rgb(192, 192, 246);
+  /* background-color: rgb(192, 192, 246); */
+  background-color: var(--bg);
+  color: white;
 }

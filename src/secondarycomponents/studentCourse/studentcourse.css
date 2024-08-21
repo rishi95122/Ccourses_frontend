@@ -5,7 +5,7 @@
     align-items: center;
   width: 100%;
    gap:10px;
-    background-color: rgb(46, 43, 43);
+    background-color: var(--bgSoft);
     color:white;
     
     .form{
@@ -35,7 +35,7 @@
     }
     .content{
        border: 1px solid gray;
-        background-color: rgb(255, 255, 255);
+        background-color: var(--bg);
         cursor: pointer;
         .inner-content{
           font-size: small;
@@ -44,9 +44,9 @@
             background-color: rgb(255, 255, 255);
        
          p{
-            background-color: rgb(197, 214, 246);
-        
-            color: white;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 1px 1px 3px black;
+            color: rgb(0, 0, 0);
             font-weight: 500;
             font-size: small;
             padding: 15px 20px;
@@ -63,19 +63,19 @@
     }
 
     .chapters{
-background-color: rgb(255, 255, 255);
+        background-color: white;
 margin: 10px -60px -20px -60px;
 padding: 10px;
 
-color: black;
+color: rgb(0, 0, 0);
         .chapter{
             display: flex;
             gap:10px;
             align-items: center;
-            background-color: rgb(246, 245, 245);
+            background-color: var(--bgSoft);
             padding: 0.1px;
-    
-        
+    color: #ffffff;
+            
             border: 1px solid rgb(191, 191, 191);
             h5{
                 font-weight: 700;

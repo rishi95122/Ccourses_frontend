@@ -5,8 +5,7 @@
     display: flex;
    justify-content:space-between ;
     align-items: center;
-    background-color: #ffffff;
-
+    background-color: var(--bgSoft);
     .navsearch{
         flex: 1;
         text-align: center;

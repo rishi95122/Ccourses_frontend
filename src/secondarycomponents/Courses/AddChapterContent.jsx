@@ -51,6 +51,8 @@ const AddChapterContent = ({
     addContent();
     setUrl("");
   }
+
+
   return (
     <div className="addcontent">
       {/* <div className="addcontentform">
@@ -69,8 +71,8 @@ const AddChapterContent = ({
         <Typography variant="h4">OR</Typography>
         <Box sx={{display:"flex",alignItems:"center",p:1,gap:1}}>
         
-        <TextField label="Enter Youtube URL" size="small"/>
-        <Button sx={{}} >Add</Button>
+        <TextField onChange={handleUrl} defaultValue={url} label="Enter Youtube URL" size="small"/>
+        <Button sx={{}} onClick={handleClick}>Add</Button>
         </Box>
        
         </Stack>

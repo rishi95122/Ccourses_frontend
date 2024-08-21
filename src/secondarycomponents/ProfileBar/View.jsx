@@ -76,8 +76,8 @@ console.log(data)
                 
                 </div>
             </div>
-            })):<div>{error}</div>
-               ) :<MoonLoader color="#36d7b7" />
+            })):<div className='error'>{error}</div>
+               ) :<div className='loadingg'><MoonLoader color="#36d7b7" /></div>
             }
         </div>
     </div>

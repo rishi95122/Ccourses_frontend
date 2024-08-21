@@ -42,7 +42,7 @@ const Navbar = () => {
   return (
     <div className="navbar" >
       <div className="img">
-       <IconButton sx={{color:"black"}}>
+       <IconButton sx={{color:"white"}}>
         <LibraryBooksIcon fontSize="large" onClick={()=>nav('/')}/>
        </IconButton>
 

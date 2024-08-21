@@ -2,7 +2,7 @@
 .home{
     margin:0px 250px;
     min-height: 80vh;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--bgSoft);
 }
 @media only screen and (max-width: 1245px) {
     .home{

@@ -5,7 +5,7 @@
     align-items: center;
   width: 100%;
    gap:10px;
-    background-color: rgb(46, 43, 43);
+    background-color:var(--bgSoft);
     color:white;
     
     .form{
@@ -48,9 +48,9 @@
             background-color: rgb(255, 255, 255);
           
            p{
-           background-color: rgb(197, 214, 246);
+           background-color: rgb(255, 255, 255);
         
-           color: white;
+           color: rgb(0, 0, 0);
            font-weight: 500;
            font-size: small;
            padding: 15px 20px;
@@ -67,7 +67,7 @@
     }
 
     .chapters{
-background-color: rgb(246, 239, 239);
+background-color: rgb(255, 255, 255);
 
 padding: 10px;
 
@@ -77,10 +77,10 @@ color: black;
             display: flex;
             gap:10px;
             align-items: center;
-            background-color: rgb(246, 245, 245);
+            background-color:var(--bgSoft);
             padding: 0.1px;
             justify-content: space-between;
-        
+            color: #ffffff;
             border: 1px solid rgb(191, 191, 191);
             .header{
                 display: flex;

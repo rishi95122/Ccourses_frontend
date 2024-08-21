@@ -50,7 +50,7 @@ setSearch(res)
                     
                     </div>
                 </div>
-                })):<MoonLoader color="#36d7b7" />
+                })):<div className='loadingg'><MoonLoader color="#36d7b7" /></div>
             }
         </div>
     </div>
