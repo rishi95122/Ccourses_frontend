@@ -34,9 +34,10 @@
        background-color: var(--bg);
       border-radius: 15px;
       #delete{
-        position: absolute;
-       align-self: flex-end;
+       text-align: center;
+       background-color: white;
        cursor: pointer;
+       color: rgb(0, 0, 0);
        &:hover{
         transform: scale(1.1);
        }
@@ -115,5 +116,11 @@
 background-color: rgb(54, 0, 179);
 transition: 0.5s ease;
         }
+    }
+}
+
+@media (max-width:670px){
+    .single{
+        justify-content: center;
     }
 }

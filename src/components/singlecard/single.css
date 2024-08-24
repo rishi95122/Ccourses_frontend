@@ -58,3 +58,9 @@
     }
    
 }
+
+@media (max-width:600px){
+    .single-cards{
+        justify-content: center;
+    }
+}

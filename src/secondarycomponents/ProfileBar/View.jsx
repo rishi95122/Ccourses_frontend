@@ -62,7 +62,7 @@ console.log(data)
                (data || error )?(
               !error?(data?.map((item)=>{
                 return  <div className='card'>
-                  <MdDelete id="delete" onClick={()=>handleDelete(item)}/>
+                 
                 <div className='img'>
                     <img src={`http://res.cloudinary.com/drlewouwd/image/upload/v1710917678/${item.image}.png`} />
 
@@ -72,8 +72,11 @@ console.log(data)
                 <h5>{item?.course}</h5>
               
                 <h6>{item?.category}</h6>
+                <div className='button-group'>
                 <Link to={"/teacher/course/"+item.course+'='+item.username} state={item}><button>Edit Course</button></Link>
-                
+                  <button id="delete" onClick={()=>handleDelete(item)}> Delete</button>
+                  </div>
+               
                 </div>
             </div>
             })):<div className='error'>{error}</div>
