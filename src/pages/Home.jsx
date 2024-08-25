@@ -1,7 +1,8 @@
 import React from 'react'
 import Carou from '../components/homepage/carousel/Carou'
-import Container from '../components/homepage/homecontainer/Container'
+
 import "./home.css"
+import Container from '../components/homepage/carousel/homecontainer/Container'
 const Home = () => {
   return (
     <div className='home'>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { data} from '../../../store/categories'
-import Single from '../../singlecard/Single'
+import { data} from '../../../../store/categories'
+import Single from '../../../singlecard/Single'
 import "./container.css"
 const Container = () => {
 const [cat,setCat]=useState("Web Development")
