@@ -22,7 +22,7 @@ const Courses = () => {
   const [loading, setLoading] = useState(false);
   const [courseData, setcourseData] = useState();
   const courseName = name.split("=");
-console.log(courseName)
+
   const handleClick = async (e) => {
     setLoading(true);
     e.preventDefault();
@@ -140,7 +140,7 @@ console.log(courseName)
             <div className="img">
               <img
                 loading="lazy"
-                src={`http://res.cloudinary.com/drlewouwd/image/upload/v1710917678/${
+                src={`http://res.cloudinary.com/drlewouwd/image/upload/q_auto/v1710917678/${
                   courseData?.image || location?.image
                 }.png`}
               />

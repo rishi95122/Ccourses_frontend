@@ -38,7 +38,11 @@ setSearch(res)
               search? ( search?.map((item)=>{
                     return  <div className='card'>
                     <div className='img'>
-                        <img src={`http://res.cloudinary.com/drlewouwd/image/upload/v1710917678/${item.image}.png`} />
+                    <img
+  src={`https://res.cloudinary.com/drlewouwd/image/upload/q_auto,f_auto/v1710917678/${item.image}.png`}
+  alt="Optimized Image"
+/>
+
 
                     </div>
                     <div className='text'>
