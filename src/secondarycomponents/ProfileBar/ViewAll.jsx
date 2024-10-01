@@ -5,6 +5,7 @@ import axios from "axios"
 import { AuthContext } from "../../context/authContext";
 import { getData } from '../../store/courses';
 import "./profilebar.css"
+import SingleCard from '../../../src/skeleton/SingleCard'
 import { MoonLoader } from 'react-spinners';
 const ViewAll = () => {
 const {input} =useContext(AuthContext)
@@ -54,7 +55,7 @@ setSearch(res)
                     
                     </div>
                 </div>
-                })):<div className='loadingg'><MoonLoader color="#36d7b7" /></div>
+                })):<div className='loadingg'> <SingleCard />  <SingleCard />  <SingleCard /></div>
             }
         </div>
     </div>

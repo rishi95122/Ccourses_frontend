@@ -3,6 +3,7 @@ import {Link, NavLink} from "react-router-dom"
 import axios from "axios"
 import "./single.css"
 import { MoonLoader } from 'react-spinners'
+import SingleCard from '../../skeleton/SingleCard'
 const Single = ({cat}) => {
 
     const [data,setData]=useState([])
@@ -49,7 +50,7 @@ const Single = ({cat}) => {
                 
                     </NavLink >
                 )
-            }))) :<div className='loadingg'> <MoonLoader color="#36d7b7" /> </div>
+            }))) :<div className='loadingg'> <SingleCard />  <SingleCard />  <SingleCard /></div>
         }
     </div>
   )

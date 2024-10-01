@@ -5,6 +5,7 @@ import Cookies from 'js-cookie';
 import {MoonLoader} from "react-spinners"
 import { AuthContext } from '../../context/authContext'
 import "./profilebar.css"
+import SingleCard from '../../../src/skeleton/SingleCard'
 import {Link} from "react-router-dom"
 import { MdDelete } from "react-icons/md";
 const View = () => {
@@ -84,7 +85,7 @@ console.log(data)
                 </div>
             </div>
             })):<div className='error'>{error}</div>
-               ) :<div className='loadingg'><MoonLoader color="#36d7b7" /></div>
+               ) :<div className='loadingg'> <SingleCard />  <SingleCard />  <SingleCard /></div>
             }
         </div>
     </div>
