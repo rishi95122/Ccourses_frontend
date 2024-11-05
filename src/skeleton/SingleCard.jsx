@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, CardContent, Skeleton, Box } from '@mui/material';
 
-const CourseCardSkeleton = () => {
+const CourseCardSkeleton = ({width=230}) => {
   return (
-    <Card sx={{ width: 230, backgroundColor: '#1a1a2e', borderRadius: 2 }}>
+    <Card sx={{ width: width, backgroundColor: '#1a1a2e', borderRadius: 2 }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {/* Skeleton for the image */}
         <Skeleton variant="rectangular" width="100%" height={140} sx={{ bgcolor: 'grey.500', mt: 2, borderRadius: 1 }} />

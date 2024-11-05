@@ -14,7 +14,6 @@ function App() {
       const res =   await axios.get(`${process.env.REACT_APP_BACK_API}/auth/me`,{
         withCredentials:true
       })
-    
       setCurrentUser(res.data)
       console.log(res.data)
     }

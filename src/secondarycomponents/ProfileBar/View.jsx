@@ -85,7 +85,7 @@ console.log(data)
                 </div>
             </div>
             })):<div className='error'>{error}</div>
-               ) :<div className='loadingg'> <SingleCard />  <SingleCard />  <SingleCard /></div>
+               ) :<div className='skeletons'> <SingleCard />  <SingleCard />  <SingleCard /></div>
             }
         </div>
     </div>

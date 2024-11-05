@@ -55,7 +55,7 @@ setSearch(res)
                     
                     </div>
                 </div>
-                })):<div className='loadingg'> <SingleCard />  <SingleCard />  <SingleCard /></div>
+                })):<div className='skeletons'> <SingleCard />  <SingleCard />  <SingleCard /></div>
             }
         </div>
     </div>
