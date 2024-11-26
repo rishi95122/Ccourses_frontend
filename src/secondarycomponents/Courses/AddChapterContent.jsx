@@ -5,7 +5,14 @@ import { MoonLoader } from "react-spinners";
 import VideoUpload from "../../VideoUpload/VideoUpload";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {Box, Button, Paper, Stack, TextField, Typography} from "@mui/material"
+import {
+  Box,
+  Button,
+  Paper,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import ReactPlayer from "react-player";
 const AddChapterContent = ({
   course,
@@ -21,14 +28,18 @@ const AddChapterContent = ({
   async function addContent() {
     try {
       await axios
-        .post(`${process.env.REACT_APP_BACK_API}/chapter/content`, {
-          username: username,
-          course: course,
-          chapter: chapter,
-          content: url,
-        },{
-          withCredentials:true
-        })
+        .post(
+          `${process.env.REACT_APP_BACK_API}/chapter/content`,
+          {
+            username: username,
+            course: course,
+            chapter: chapter,
+            content: url,
+          },
+          {
+            withCredentials: true,
+          }
+        )
         .then(() => {
           handleEdit(add);
         });
@@ -52,7 +63,6 @@ const AddChapterContent = ({
     setUrl("");
   }
 
-
   return (
     <div className="addcontent">
       {/* <div className="addcontentform">
@@ -66,17 +76,26 @@ const AddChapterContent = ({
         <button onClick={handleClick}>Add</button>
       </div> */}
       <Paper elevation={24}>
-        <Stack  direction='row' alignItems='center' justifyContent='space-between' p={1}>
-        <VideoUpload setUrl={setUrl} />
-        <Typography variant="h4">OR</Typography>
-        <Box sx={{display:"flex",alignItems:"center",p:1,gap:1}}>
-        
-        <TextField onChange={handleUrl} defaultValue={url} label="Enter Youtube URL" size="small"/>
-        <Button sx={{}} onClick={handleClick}>Add</Button>
-        </Box>
-       
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
+          p={1}
+        >
+          <VideoUpload setUrl={setUrl} />
+          <Typography variant="h4">OR</Typography>
+          <Box sx={{ display: "flex", alignItems: "center", p: 1, gap: 1 }}>
+            <TextField
+              onChange={handleUrl}
+              defaultValue={url}
+              label="Enter Youtube URL"
+              size="small"
+            />
+            <Button sx={{}} onClick={handleClick}>
+              Add
+            </Button>
+          </Box>
         </Stack>
-   
       </Paper>
 
       <div className="content">

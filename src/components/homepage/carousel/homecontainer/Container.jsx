@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { data} from '../../../../store/categories'
 import Single from '../../../singlecard/Single'
 import "./container.css"

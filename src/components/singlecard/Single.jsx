@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import {Link, NavLink} from "react-router-dom"
+import { NavLink} from "react-router-dom"
 import axios from "axios"
 import "./single.css"
-import { MoonLoader } from 'react-spinners'
+
 import SingleCard from '../../skeleton/SingleCard'
 const Single = ({cat}) => {
 

@@ -1,90 +1,94 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import "./studentcourse.css"
+import "./studentcourse.css";
 
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 
 import ViewStudentContent from "./ViewStudentContent";
 import { Paper, Typography } from "@mui/material";
-import { MoonLoader } from "react-spinners";
+
 import CourseCardSkeleton from "../../skeleton/SingleCard";
 const StudentCourse = () => {
   const { name } = useParams();
-  const location = useLocation().state;
+
   const [add, setAdd] = useState(null);
   const { currentUser } = useContext(AuthContext);
   const [data, setData] = useState();
   const [content, setContent] = useState();
   const [courseData, setcourseData] = useState();
-  const [loading,setLoading]=useState(false)
+  const [loading, setLoading] = useState(false);
 
-  const courseName= name.split("=")
-  console.log(courseName)
-useEffect(()=>{
-  setLoading(true)
-  async function getCourseData() {
-    try {
-      const course = await axios.post(`${process.env.REACT_APP_BACK_API}/course/getCourseData`, {
-        username: courseName[1],
-        course: courseName[0],
-      },{
-        withCredentials:true
-      });
-
-      setcourseData(course.data);
-      setLoading(false)
-    } catch (err) {
-     
-    }
-  }
-  getCourseData();
-},[])
+  const courseName = name.split("=");
+  console.log(courseName);
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
+    async function getCourseData() {
+      try {
+        const course = await axios.post(
+          `${process.env.REACT_APP_BACK_API}/course/getCourseData`,
+          {
+            username: courseName[1],
+            course: courseName[0],
+          },
+          {
+            withCredentials: true,
+          }
+        );
+
+        setcourseData(course.data);
+        setLoading(false);
+      } catch (err) {}
+    }
+    getCourseData();
+  }, []);
+  useEffect(() => {
+    setLoading(true);
     async function getCourses() {
       try {
-        const course = await axios.post(`${process.env.REACT_APP_BACK_API}/course/getcourses`, {
-          username: courseName[1],
-          course: courseName[0],
-        },{
-          withCredentials:true
-        });
+        const course = await axios.post(
+          `${process.env.REACT_APP_BACK_API}/course/getcourses`,
+          {
+            username: courseName[1],
+            course: courseName[0],
+          },
+          {
+            withCredentials: true,
+          }
+        );
 
         setData(course.data);
-        setLoading(false)
-      } catch (err) {
-       
-      }
+        setLoading(false);
+      } catch (err) {}
     }
     getCourses();
   }, []);
- console.log("dasasasasasasasdds",courseData)
-  async function handleEdit(item){
-    if(item?.name===add)
-      {
-       setAdd({})
-       return;
-      }
-    setLoading(true)
-    setAdd(item.name)
+  console.log("dasasasasasasasdds", courseData);
+  async function handleEdit(item) {
+    if (item?.name === add) {
+      setAdd({});
+      return;
+    }
+    setLoading(true);
+    setAdd(item.name);
     try {
-      const dataa=await axios.post(`${process.env.REACT_APP_BACK_API}/chapter/getContent`, {
+      const dataa = await axios.post(
+        `${process.env.REACT_APP_BACK_API}/chapter/getContent`,
+        {
           username: courseName[1],
           course: courseName[0],
-          chapter:item.name,
-        },{
-          withCredentials:true
-        });
-     
-        setContent(dataa.data)
-        setLoading(false)
-      } catch (err) {
-       
-      }
-   
-    }
-console.log("dsadas",data)
+          chapter: item.name,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+
+      setContent(dataa.data);
+      setLoading(false);
+    } catch (err) {}
+  }
+  console.log("dsadas", data);
   return (
     <div className="main-addcourse">
       <div className="add-course">
@@ -99,27 +103,41 @@ console.log("dsadas",data)
             <h1>{courseData?.course}</h1>
             <p>{courseData?.description}</p>
           </div>
-          {(loading)?<div className='loadingg'> <CourseCardSkeleton width={"800px"}/> </div>:<div className="chapters">
-            <div className="chapter-form">
-              <h2>Course Content</h2>
-    
+          {loading ? (
+            <div className="loadingg">
+              {" "}
+              <CourseCardSkeleton width={"800px"} />{" "}
             </div>
-            {!currentUser && !loading ? <Paper elevation={24}>
-             <Typography variant="h6" p={3} textAlign='center' color='red'>
-             Please Login to view Content!!!
-              </Typography></Paper>:
-            data?.map((item,idx) => {
-              return (
-                <div>
-                <div className="chapter"  onClick={()=>handleEdit(item)}>
-                  <div >{<h5 >{item?.name}</h5>}</div>
-                </div>
-                {add==item.name&& <ViewStudentContent content={content} loading={loading} />}
-                </div>
-              );
-            })}
-          </div>}
-          
+          ) : (
+            <div className="chapters">
+              <div className="chapter-form">
+                <h2>Course Content</h2>
+              </div>
+              {!currentUser && !loading ? (
+                <Paper elevation={24}>
+                  <Typography variant="h6" p={3} textAlign="center" color="red">
+                    Please Login to view Content!!!
+                  </Typography>
+                </Paper>
+              ) : (
+                data?.map((item, idx) => {
+                  return (
+                    <div>
+                      <div className="chapter" onClick={() => handleEdit(item)}>
+                        <div>{<h5>{item?.name}</h5>}</div>
+                      </div>
+                      {add == item.name && (
+                        <ViewStudentContent
+                          content={content}
+                          loading={loading}
+                        />
+                      )}
+                    </div>
+                  );
+                })
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

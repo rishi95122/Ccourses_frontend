@@ -12,7 +12,6 @@ const VideoUpload = ({setUrl}) => {
   const [video, setVideo] = useState();
   const [videoper, setVideoper] = useState();
 
-  const [input,setInputs]=useState()
 
   function upload(file, fileType) {
     const storage = getStorage(app);

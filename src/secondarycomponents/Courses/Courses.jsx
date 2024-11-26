@@ -8,8 +8,9 @@ import { AuthContext } from "../../context/authContext";
 import AddChapterContent from "./AddChapterContent";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { MoonLoader } from "react-spinners";
+
 import { Paper } from "@mui/material";
+import CourseCardSkeleton from "../../skeleton/SingleCard";
 
 const Courses = () => {
   const { name } = useParams();
@@ -153,9 +154,9 @@ const Courses = () => {
           </div>
 
           {loading ? (
-            <div className="loadingg">
+            <div className="skeletons">
               {" "}
-              <MoonLoader color="#36d7b7" />{" "}
+              <CourseCardSkeleton width={"800px"} />{" "}
             </div>
           ) : (
             <Paper variant="elevation" elevation={24}>

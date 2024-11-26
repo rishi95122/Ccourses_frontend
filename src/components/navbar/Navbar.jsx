@@ -1,8 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./navbar.css";
-import logo from "../../logo-udemy.svg";
-import { MdOutlineShoppingCart } from "react-icons/md";
-import { CiSearch } from "react-icons/ci";
+
 import Categories from "../../bin/Categories";
 import { AuthContext } from "../../context/authContext";
 import { CgProfile } from "react-icons/cg";

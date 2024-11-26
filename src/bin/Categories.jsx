@@ -5,7 +5,7 @@ import { SubCategories } from './SubCategories';
 
 const Categories = () => {
     const [subCat,setsubCat]=useState([])
-    const [set,setSet]=useState(false)
+ 
   return (
     <div className='nav-cat'>
       

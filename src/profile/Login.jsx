@@ -1,19 +1,19 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import { TextField, Button, Typography, Box } from '@mui/material';
-import { AuthContext } from '../context/authContext';
-import './profile.css';
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { TextField, Button, Typography, Box } from "@mui/material";
+import { AuthContext } from "../context/authContext";
+import "./profile.css";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [otp, setOtp] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [otp, setOtp] = useState("");
   const [resend, setResend] = useState(false);
-  const [err, setErr] = useState('');
+  const [err, setErr] = useState("");
   const [seconds, setSeconds] = useState();
   const { login } = useContext(AuthContext);
-  const [disableOtp,setDisableOtp]=useState(false)
+  const [disableOtp, setDisableOtp] = useState(false);
   const handleLogin = async () => {
     const data = {
       email: email,
@@ -24,7 +24,7 @@ const Login = () => {
       const err = await login(data);
       setErr(err);
     } catch (err) {
-      setErr(err.response?.data || 'Login failed');
+      setErr(err.response?.data || "Login failed");
     }
   };
 
@@ -46,65 +46,73 @@ const Login = () => {
 
   const handleOtp = async () => {
     try {
-      await axios.post(`${process.env.REACT_APP_BACK_API}/auth/mail`, { email: email });
+      await axios.post(`${process.env.REACT_APP_BACK_API}/auth/mail`, {
+        email: email,
+      });
       setSeconds(30);
       setResend(true);
     } catch (err) {
-      setErr(err.response?.data || 'OTP request failed');
+      setErr(err.response?.data || "OTP request failed");
     }
   };
 
   return (
     <div className="parent-login">
       <div className="loginn">
-        <Typography variant="h5" sx={{fontWeight:"bold"}} gutterBottom>Login to your account</Typography>
+        <Typography variant="h5" sx={{ fontWeight: "bold" }} gutterBottom>
+          Login to your account
+        </Typography>
 
-        <TextField 
-          label="Email" 
-          variant="outlined" 
-          fullWidth 
-            size='small'
-            value={email}
+        <TextField
+          label="Email"
+          variant="outlined"
+          fullWidth
+          size="small"
+          value={email}
           margin="dense"
-          onChange={(e) => setEmail(e.target.value)} 
+          onChange={(e) => setEmail(e.target.value)}
         />
 
-        <TextField 
-          label="Password" 
-          variant="outlined" 
+        <TextField
+          label="Password"
+          variant="outlined"
           type="password"
-          size='small' 
+          size="small"
           value={password}
-          fullWidth 
+          fullWidth
           margin="dense"
-          onChange={(e) => setPassword(e.target.value)} 
+          onChange={(e) => setPassword(e.target.value)}
         />
 
-        <TextField 
-          label="OTP" 
-          variant="outlined" 
-          fullWidth 
+        <TextField
+          label="OTP"
+          variant="outlined"
+          fullWidth
           value={otp}
           margin="dense"
-            size='small'
-          onChange={(e) => setOtp(e.target.value)} 
+          size="small"
+          onChange={(e) => setOtp(e.target.value)}
         />
 
         <Box display="flex" justifyContent="space-between" gap={1}>
-          <Button 
-            variant="contained" 
-            color="primary" 
-            onClick={handleOtp} 
-            disabled={resend||disableOtp} 
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleOtp}
+            disabled={resend || disableOtp}
             fullWidth
-            style={resend || disableOtp? { backgroundColor: 'gray' } : { backgroundColor: 'rgb(181, 110, 248)' }}
+            style={
+              resend || disableOtp
+                ? { backgroundColor: "gray" }
+                : { backgroundColor: "rgb(181, 110, 248)" }
+            }
           >
-            {resend ? `Resend in ${seconds}` : 'Send OTP'}
+            {resend ? `Resend in ${seconds}` : "Send OTP"}
           </Button>
 
-          <Button 
-            variant="contained" 
-            color="primary" 
+          <Button
+            variant="contained"
+            color="primary"
             fullWidth
             onClick={handleLogin}
           >
@@ -112,33 +120,46 @@ const Login = () => {
           </Button>
         </Box>
 
-        {err && <Typography color="error" variant="body2" align="center" mt={2}>{err}</Typography>}
+        {err && (
+          <Typography color="error" variant="body2" align="center" mt={2}>
+            {err}
+          </Typography>
+        )}
 
         <Box mt={2} textAlign="center">
           <Button variant="outlined" color="secondary">
-            <Link className="link" to="/forgot">Forgot Password</Link>
+            <Link className="link" to="/forgot">
+              Forgot Password
+            </Link>
           </Button>
         </Box>
-        <Box mt={2}  textAlign="center">
+        <Box mt={2} textAlign="center">
           <Button
-          onClick={()=>{
-            setEmail('testteacher@test.com')
-            setPassword('123456789')
-            setOtp('236031')
-            setDisableOtp(true)
-          }}
-          sx={{textTransform:'none'}} variant="outlined" color="secondary">
-          Instant Login as Teacher
+            onClick={() => {
+              setEmail("testteacher@test.com");
+              setPassword("123456789");
+              setOtp("236031");
+              setDisableOtp(true);
+            }}
+            sx={{ textTransform: "none" }}
+            variant="outlined"
+            color="secondary"
+          >
+            Instant Login as Teacher
           </Button>
-          <Button 
-           onClick={()=>{
-            setEmail('teststudent@test.com')
-            setPassword('123456789')
-            setOtp('273840')
-            setDisableOtp(true)
-          }}
-          sx={{textTransform:'none'}} mt={2} variant="outlined" color="secondary">
-          Instant Login as Student
+          <Button
+            onClick={() => {
+              setEmail("teststudent@test.com");
+              setPassword("123456789");
+              setOtp("273840");
+              setDisableOtp(true);
+            }}
+            sx={{ textTransform: "none" }}
+            mt={2}
+            variant="outlined"
+            color="secondary"
+          >
+            Instant Login as Student
           </Button>
         </Box>
       </div>

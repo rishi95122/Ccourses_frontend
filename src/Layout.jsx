@@ -1,9 +1,8 @@
 import React from 'react'
 import Navbar from './components/navbar/Navbar'
-import Carou from './components/homepage/carousel/Carou'
 import Home from './pages/Home'
 import Footer from './components/footer/Footer'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import {  Route, Routes, useLocation } from 'react-router-dom'
 import Login from './profile/Login'
 import Register from './profile/Register'
 import Manage from './secondarycomponents/AddCourse/Manage'
@@ -12,12 +11,15 @@ import Courses from './secondarycomponents/Courses/Courses'
 import ViewAll from './secondarycomponents/ProfileBar/ViewAll'
 import StudentCourse from './secondarycomponents/studentCourse/StudentCourse'
 import Forgot from './profile/Forgot'
+import AdminDashboard from './admin/AdminDashboard'
+import { ToastContainer } from 'react-toastify'
 const Layout = () => {
+  const {pathname} =useLocation()
+
   return (
     <div >
-        <Navbar/>
+       {pathname!=='/admin' && <Navbar/>}
     <Routes>
-
       <Route path="/" element={ <Home />}/>
       <Route path="/login" element={<Login />}/>
       <Route path="/forgot" element={<Forgot />}/>
@@ -27,11 +29,10 @@ const Layout = () => {
       <Route path="/teacher/course/:name" element={<Courses />} />
       <Route path="/course/:name" element={<StudentCourse />} />
       <Route path="/courses/"  element={<ViewAll />}/>
+      <Route path="/admin"  element={<AdminDashboard />}/>
     </Routes>
-      
-       
-      
-       <Footer />
+    { pathname!=='/admin' &&   <Footer /> }
+    <ToastContainer />
     </div>
   )
 }

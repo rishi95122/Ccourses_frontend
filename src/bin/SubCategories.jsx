@@ -1,5 +1,4 @@
 import React from 'react'
-import { data } from '../store/categories'
 
 export const SubCategories = ({item}) => {
   return (

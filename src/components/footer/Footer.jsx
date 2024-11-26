@@ -1,5 +1,5 @@
 import "./footer.css"
-import logo from "../../logo-udemy-inverted.svg"
+
 import { IconButton } from "@mui/material"
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 const Footer = () => {

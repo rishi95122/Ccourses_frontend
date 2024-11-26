@@ -10,9 +10,10 @@ const Profilebar = () => {
     <div className="profilebar">
       {currentUser?.user == "Teacher" ? (
         <div>
-     
-          <NavLink  style={{ textDecoration: "none" ,color:"inherit"}} to="/teacher/manage">
-
+          <NavLink
+            style={{ textDecoration: "none", color: "inherit" }}
+            to="/teacher/manage"
+          >
             <p
               style={{
                 textDecoration: "none",
@@ -20,15 +21,16 @@ const Profilebar = () => {
                 gap: "2px",
                 alignItems: "center",
                 justifyContent: "center",
-             
               }}
             >
-            
               <FaPlus />
               Add Courses
             </p>
           </NavLink>{" "}
-          <NavLink style={{ textDecoration: "none" ,color:"inherit"}} to="/teacher/view">
+          <NavLink
+            style={{ textDecoration: "none", color: "inherit" }}
+            to="/teacher/view"
+          >
             <p
               style={{
                 textDecoration: "none",
@@ -43,7 +45,10 @@ const Profilebar = () => {
               View Courses
             </p>
           </NavLink>{" "}
-          <NavLink style={{ textDecoration: "none" ,color:"inherit"}} to="/courses">
+          <NavLink
+            style={{ textDecoration: "none", color: "inherit" }}
+            to="/courses"
+          >
             <p
               style={{
                 textDecoration: "none",
@@ -60,7 +65,10 @@ const Profilebar = () => {
           </NavLink>{" "}
         </div>
       ) : (
-        <NavLink style={{ textDecoration: "none" ,color:"inherit"}} to="/courses">
+        <NavLink
+          style={{ textDecoration: "none", color: "inherit" }}
+          to="/courses"
+        >
           <p>View All Courses</p>
         </NavLink>
       )}
