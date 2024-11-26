@@ -6,13 +6,14 @@
   localHost             :http://localhost:3000/
   
 # Admin Dashboard
-  https://ccourses.vercel.app/admin
-  
-       To Delete , Edit, and Role management access this url
-       
-  https://ccourses.vercel.app/register
 
-        To Create a new User
+  To Delete , Edit, and Role management access this url
+
+      https://ccourses.vercel.app/admin
+       
+  To Create a new User
+
+        https://ccourses.vercel.app/register
         
 # Features
   # User Registration and Authentication
