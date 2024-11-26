@@ -11,7 +11,7 @@ const handleSub=(item)=>{
   return (
     <div className='container'>
         <div>
-        <h2>All best Courses you need in one place</h2>
+        <h2>All best Courses you need in one place.</h2>
        
         </div>
         <div className='categories'>
