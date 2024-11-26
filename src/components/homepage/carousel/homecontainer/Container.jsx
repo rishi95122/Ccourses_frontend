@@ -5,14 +5,14 @@ import "./container.css"
 const Container = () => {
 const [cat,setCat]=useState("Web Development")
 const handleSub=(item)=>{
+
   setCat(item.category)
 } 
 
   return (
     <div className='container'>
         <div>
-        <h2>All best Courses you need in one place.</h2>
-       
+        <h2>All best Courses you need in one place!.</h2>
         </div>
         <div className='categories'>
             {
@@ -22,7 +22,7 @@ const handleSub=(item)=>{
             }
         </div>
       
-         <Single cat={cat} setCat={setCat}/>
+         <Single cat={cat} setCat={setCat} />
        
     </div>
   )
