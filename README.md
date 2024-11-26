@@ -2,6 +2,18 @@
   CCourses is a web-based platform designed to facilitate seamless interaction between teachers and students by providing a streamlined course-sharing experience. The application allows teachers to create and upload educational content, while students can browse and access these courses at their convenience. The system is built with a React.js frontend for a dynamic and responsive user interface, and a robust Node.js/MongoDB
   backend for efficient data management. For media storage, Cloudinary is used to securely manage videos and images.
 
+  Frontend Deployed Url : https://ccourses.vercel.app/
+  localHost             :http://localhost:3000/
+  
+# Admin Dashboard
+  https://ccourses.vercel.app/admin
+  
+       To Delete , Edit, and Role management access this url
+       
+  https://ccourses.vercel.app/register
+
+        To Create a new User
+        
 # Features
   # User Registration and Authentication
   -Role-Based Signup: Users can register either as a Teacher or Student with differentiated permissions.
@@ -34,13 +46,13 @@
 1. **Clone the repository:**
 
     ```bash
-    https://github.com/rishi95122/Udemy_frontend.git
+    https://github.com/rishi95122/Ccourses_frontend.git
     ```
     
 2. **Navigate to the project directory:**
 
     ```bash
-    cd Udemy_frontend
+    cd Ccourses_frontend
     ```
     
 3. **Install dependencies:**
