@@ -8,24 +8,24 @@
   -Secure Authentication: Login and registration are secured with JWT-based authentication to protect user data.
   
   # Teacher Features
-  1.Course Creation and Upload:
+  1. Course Creation and Upload:
       Teachers can upload courses via two options:
           -YouTube Integration: Share content directly via YouTube links.
           -Direct Upload: Upload videos and course-related media from their local devices.
       Metadata such as course title, description, and category can be added for better organization.
   
-  2.Media Management:
+  2. Media Management:
       Uploaded videos and images are stored and served using Cloudinary, ensuring high performance and secure delivery.
       Dashboard:
       -View and manage their list of uploaded courses.
       -Update or delete existing courses.
       
-#Student Features
-1.Course Browsing:
+# Student Features
+1. Course Browsing:
     Students can explore available courses with an intuitive interface categorized by subject or relevance.
     Courses are displayed with detailed metadata, including descriptions, thumbnails, and teacher information.
     
-2.Course Viewing:
+2. Course Viewing:
     Play videos directly on the platform using an embedded media player for a smooth viewing experience.
 
     
