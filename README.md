@@ -2,13 +2,12 @@
   CCourses is a web-based platform designed to facilitate seamless interaction between teachers and students by providing a streamlined course-sharing experience. The application allows teachers to create and upload educational content, while students can browse and access these courses at their convenience. The system is built with a React.js frontend for a dynamic and responsive user interface, and a robust Node.js/MongoDB
   backend for efficient data management. For media storage, Cloudinary is used to securely manage videos and images.
 
-#Features
-  #User Registration and Authentication
+# Features
+  # User Registration and Authentication
+  -Role-Based Signup: Users can register either as a Teacher or Student with differentiated permissions.
+  -Secure Authentication: Login and registration are secured with JWT-based authentication to protect user data.
   
-    Role-Based Signup: Users can register either as a Teacher or Student with differentiated permissions.
-    Secure Authentication: Login and registration are secured with JWT-based authentication to protect user data.
-  
-  #Teacher Features
+  # Teacher Features
   1.Course Creation and Upload:
       Teachers can upload courses via two options:
           -YouTube Integration: Share content directly via YouTube links.
