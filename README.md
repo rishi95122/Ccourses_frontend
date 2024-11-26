@@ -3,6 +3,7 @@
   backend for efficient data management. For media storage, Cloudinary is used to securely manage videos and images.
 
   Frontend Deployed Url : https://ccourses.vercel.app/
+  
   localHost             :http://localhost:3000/
   
 # Admin Dashboard
